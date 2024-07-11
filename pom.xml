@@ -127,6 +127,7 @@
 							<modelPackage>com.qinshift.transportCompany.dto</modelPackage>
 							<configOptions>
 								<interfaceOnly>true</interfaceOnly>
+								<useTags>true</useTags>
 							</configOptions>
 						</configuration>
 					</execution>
