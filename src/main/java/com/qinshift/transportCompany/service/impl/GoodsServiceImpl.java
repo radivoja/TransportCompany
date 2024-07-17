@@ -1,6 +1,7 @@
 package com.qinshift.transportCompany.service.impl;
 
-import com.qinshift.transportCompany.entity.GoodsEntity;
+import com.qinshift.transportCompany.dto.Goods;
+import com.qinshift.transportCompany.mappers.GoodsMapper;
 import com.qinshift.transportCompany.repository.GoodsRepository;
 import com.qinshift.transportCompany.service.GoodsService;
 import lombok.RequiredArgsConstructor;
@@ -13,14 +14,15 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class GoodsServiceImpl implements GoodsService {
     private final GoodsRepository goodsRepository;
+    private final GoodsMapper goodsMapper;
 
     @Override
-    public List<GoodsEntity> findAll() {
-        return goodsRepository.findAll();
+    public List<Goods> listAll() {
+        return goodsMapper.mapToDto(goodsRepository.findAll());
     }
 
     @Override
-    public Optional<GoodsEntity> getGoods(String id) {
-        return goodsRepository.findById(id);
+    public Optional<Goods> getGoodsById(String id) {
+        return goodsRepository.findById(id).map(goodsMapper::map);
     }
 }

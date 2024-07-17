@@ -1,7 +1,9 @@
 package com.qinshift.transportCompany.service.impl;
 
+import com.qinshift.transportCompany.dto.Truck;
 import com.qinshift.transportCompany.entity.GoodsEntity;
 import com.qinshift.transportCompany.entity.TruckEntity;
+import com.qinshift.transportCompany.mappers.TruckMapper;
 import com.qinshift.transportCompany.repository.GoodsRepository;
 import com.qinshift.transportCompany.repository.TruckRepository;
 import com.qinshift.transportCompany.service.TruckService;
@@ -17,47 +19,51 @@ public class TruckServiceImpl implements TruckService {
 
     private final TruckRepository truckRepository;
     private final GoodsRepository goodsRepository;
+    private final TruckMapper truckMapper;
 
     @Override
-    public List<TruckEntity> findAll() {
-        return truckRepository.findAll();
+    public List<Truck> findAll() {
+        return truckMapper.mapToDto(truckRepository.findAll());
     }
 
     @Override
-    public Optional<TruckEntity> getTruck(String id) {
-        return truckRepository.findById(id);
+    public Optional<Truck> getTruck(String id) {
+        return truckRepository.findById(id).map(truckMapper::map);
     }
 
     @Override
-    public boolean createTruck(TruckEntity truck) {
-        if(truckRepository.existsById(truck.getId())) {
-            return false;
+    public Optional<Truck> createTruck(Truck truck) {
+        if(truckRepository.existsById(truck.getId())){
+            return Optional.empty();
         }
-        truckRepository.save(truck);
-        return true;
+        return Optional.of(truckMapper.map(truckRepository.save(truckMapper.map(truck))));
+
     }
 
     @Override
-    public TruckEntity updateTruck(String id, TruckEntity truck) {
-        if(truckRepository.existsById(id)){
+    public Optional<Truck> updateTruck(String id, Truck truck) {
+        if(truckRepository.existsById(id)) {
             truck.setId(id);
-            return truckRepository.save(truck);
+            return Optional.ofNullable(truckMapper.map(truckRepository.save(
+                    truckMapper.map(truck))));
         }
-        return null;
+        return Optional.empty();
     }
 
     @Override
-    public boolean deleteTruck(String id) {
-        if(truckRepository.existsById(id)){
+    public Optional<Truck> deleteTruck(String id) {
+        Optional<TruckEntity> entity = truckRepository.findById(id);
+        if (entity.isPresent()) {
             truckRepository.deleteById(id);
-            return true;
+            return Optional.of(new Truck());
+        } else {
+            return Optional.empty();
         }
-        return false;
     }
 
     @Override
-    public List<TruckEntity> findTrucksByGoodsId(String id) {
-        return truckRepository.findTrucksByGoodsId(id);
+    public List<Truck> findTrucksByGoodsId(String id) {
+        return truckMapper.mapToDto(truckRepository.findTrucksByGoodsId(id));
     }
 
     @Override

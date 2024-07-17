@@ -1,13 +1,14 @@
 package com.qinshift.transportCompany.service;
 
-import com.qinshift.transportCompany.entity.DriverEntity;
+import com.qinshift.transportCompany.dto.Driver;
 
 import java.util.List;
+import java.util.Optional;
 
 
 public interface DriverService {
 
-    DriverEntity createDriver(DriverEntity driver);
+    Optional<Driver> createDriver(Driver driver);
 
-    List<DriverEntity> listAll();
+    List<Driver> listAll();
 }

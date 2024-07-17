@@ -11,6 +11,6 @@ public interface DriverMapper {
   Driver map(DriverEntity entity);
   DriverEntity map(Driver dto);
 
-  List<Driver> listEntityToDto(List<DriverEntity> entities);
-  List<DriverEntity> listDtoToEntity(List<Driver> dtos);
+  List<Driver> mapToDto(List<DriverEntity> entities);
+  List<DriverEntity> mapToEntity(List<Driver> dtos);
 }

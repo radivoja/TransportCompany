@@ -204,7 +204,7 @@ paths:
       summary: Get a truck by Id
       tags:
         - "Truck"
-      operationId: getTruck
+      operationId: getTruckById
       responses:
         "200":
           description: Single truck

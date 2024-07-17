@@ -1,8 +1,6 @@
 package com.qinshift.transportCompany.controller;
 
 import com.qinshift.transportCompany.dto.Company;
-import com.qinshift.transportCompany.entity.CompanyEntity;
-import com.qinshift.transportCompany.mappers.CompanyMapper;
 import com.qinshift.transportCompany.service.CompanyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -10,54 +8,42 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
 public class CompanyController implements CompanyApi {
     private final CompanyService companyService;
-    private final CompanyMapper companyMapper;
 
     @Override
     public ResponseEntity<String> createCompany(Company body) {
-        CompanyEntity company = companyMapper.map(body);
-        if(companyService.createCompany(company)){
-            return new ResponseEntity<>("Already exist", HttpStatus.OK);
+        if (companyService.createCompany(body).isPresent()) {
+            return ResponseEntity.status(HttpStatus.CREATED).body("Successfully created");
         }
+        return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("Already Exist");
 
-        return new ResponseEntity<>("Successfully created", HttpStatus.CREATED);
     }
 
     @Override
     public ResponseEntity<String> deleteCompanyById(String idd) {
-        if(companyService.deleteCompany(idd)){
-            return new ResponseEntity<>("Successfully deleted", HttpStatus.OK);
+        if(companyService.deleteCompany(idd).isPresent()){
+            return ResponseEntity.status(HttpStatus.CREATED).body("Successfully deleted");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not Found with "+ idd);
         }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @Override
     public ResponseEntity<List<Company>> getCompanies() {
-        List<Company> companies = companyMapper.mapToEntity(companyService.listAll());
-        return new ResponseEntity<>(companies, HttpStatus.OK);
+        return ResponseEntity.ok(companyService.listAll());
     }
 
     @Override
     public ResponseEntity<Company> getCompanyById(String id) {
-        Optional<CompanyEntity> company = companyService.getCompanyById(id);
-        if(company.isEmpty()){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-        return new ResponseEntity<>(companyMapper.map(company.get()), HttpStatus.FOUND);
+        return ResponseEntity.of(companyService.getCompanyById(id));
     }
 
     @Override
     public ResponseEntity<Company> updateCompany(String idp, Company body) {
-        CompanyEntity company = companyService.updateTruck(idp, companyMapper.map(body));
-        if(company == null){
-            return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
-        }
-        return new ResponseEntity<>(companyMapper.map(company), HttpStatus.OK);
+        return ResponseEntity.of(companyService.updateCompany(idp, body));
     }
 }

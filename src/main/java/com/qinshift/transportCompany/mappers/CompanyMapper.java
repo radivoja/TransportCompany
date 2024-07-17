@@ -12,7 +12,7 @@ public interface CompanyMapper {
     Company map(CompanyEntity company);
     CompanyEntity map(Company company);
 
-    List<Company> mapToEntity(List<CompanyEntity> companies);
-    List<CompanyEntity> mapToDto(List<Company> companies);
+    List<Company> mapToDto(List<CompanyEntity> companies);
+    List<CompanyEntity> mapToEntity(List<Company> companies);
 
 }

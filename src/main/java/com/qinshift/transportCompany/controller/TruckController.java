@@ -16,7 +16,6 @@ import java.util.List;
 public class TruckController implements TruckApi{
 
     private final TruckService truckService;
-    private final TruckMapper truckMapper;
     
     @Override
     public ResponseEntity<String> assignTruckToGoods(String truckId, String goodsId) {
@@ -29,48 +28,40 @@ public class TruckController implements TruckApi{
 
     @Override
     public ResponseEntity<String> createTruck(Truck body) {
-        TruckEntity truck = truckMapper.map(body);
-        if(truckService.createTruck(truck)){
-            return new ResponseEntity<>("Already exist" , HttpStatus.OK);
+        if (truckService.createTruck(body).isPresent()) {
+            return ResponseEntity.status(HttpStatus.CREATED).body("Successfully created");
         }
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("Already Exist");
+
     }
 
     @Override
     public ResponseEntity<String> deleteTruck(String idd) {
-        if(truckService.deleteTruck(idd)){
-            return new ResponseEntity<>("Successfully deleted", HttpStatus.OK);
+        if(truckService.deleteTruck(idd).isPresent()){
+            return ResponseEntity.status(HttpStatus.CREATED).body("Successfully deleted");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not Found with "+ idd);
         }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @Override
-    public ResponseEntity<Truck> getTruck(String id) {
-        if(truckService.getTruck(id).isPresent()){
-            Truck truck = truckMapper.map(truckService.getTruck(id).get());
-            return new ResponseEntity<>(truck, HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<Truck> getTruckById(String id) {
+        return ResponseEntity.of(truckService.getTruck(id));
     }
 
     @Override
     public ResponseEntity<List<Truck>> getTrucks() {
-        List<Truck> trucks = truckMapper.mapToDto(truckService.findAll());
-        return new ResponseEntity<>(trucks , HttpStatus.OK);
+        return ResponseEntity.ok(truckService.findAll());
     }
 
     @Override
     public ResponseEntity<List<Truck>> getTrucksByGoodsId(String goodsId) {
-        List<Truck> trucks = truckMapper.mapToDto(truckService.findTrucksByGoodsId(goodsId));
-        return new ResponseEntity<>(trucks, HttpStatus.OK);
+        return ResponseEntity.ofNullable(truckService.findTrucksByGoodsId(goodsId));
+
     }
 
     @Override
     public ResponseEntity<Truck> updateTruck(String idt, Truck body) {
-        TruckEntity truck = truckService.updateTruck(idt, truckMapper.map(body));
-        if(truck == null){
-            return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
-        }
-        return new ResponseEntity<>(truckMapper.map(truck), HttpStatus.OK);
+        return ResponseEntity.of(truckService.updateTruck(idt, body));
     }
 }

@@ -1,23 +1,23 @@
 package com.qinshift.transportCompany.service;
 
-import com.qinshift.transportCompany.entity.TruckEntity;
+import com.qinshift.transportCompany.dto.Truck;
 
 import java.util.List;
 import java.util.Optional;
 
 
 public interface TruckService {
-    List<TruckEntity> findAll();
+    List<Truck> findAll();
 
-    Optional<TruckEntity> getTruck(String id);
+    Optional<Truck> getTruck(String id);
 
-    boolean createTruck(TruckEntity truck);
+    Optional<Truck> createTruck(Truck truck);
 
-    TruckEntity updateTruck(String id, TruckEntity truck);
+    Optional<Truck> updateTruck(String id, Truck truck);
 
-    boolean deleteTruck(String id);
+    Optional<Truck> deleteTruck(String id);
 
-    List<TruckEntity> findTrucksByGoodsId(String id);
+    List<Truck> findTrucksByGoodsId(String id);
 
     boolean assignTruckToGoods(String truckId, String goodsId);
 

@@ -1,6 +1,8 @@
 package com.qinshift.transportCompany.service.impl;
 
+import com.qinshift.transportCompany.dto.Company;
 import com.qinshift.transportCompany.entity.CompanyEntity;
+import com.qinshift.transportCompany.mappers.CompanyMapper;
 import com.qinshift.transportCompany.repository.CompanyRepository;
 import com.qinshift.transportCompany.service.CompanyService;
 import lombok.RequiredArgsConstructor;
@@ -14,41 +16,44 @@ import java.util.Optional;
 public class CompanyServiceImpl implements CompanyService {
 
     private final CompanyRepository companyRepository;
+    private final CompanyMapper companyMapper;
 
     @Override
-    public List<CompanyEntity> listAll() {
-       return companyRepository.findAll();
+    public List<Company> listAll() {
+       return companyMapper.mapToDto(companyRepository.findAll());
     }
 
     @Override
-    public boolean createCompany(CompanyEntity company) {
-        if(companyRepository.existsById(company.getId())) {
-            return false;
+    public Optional<Company> createCompany(Company company) {
+        if(companyRepository.existsById(company.getId())){
+            return Optional.empty();
         }
-        companyRepository.save(company);
-        return true;
+        return Optional.of(companyMapper.map(companyRepository.save(companyMapper.map(company))));
     }
 
     @Override
-    public Optional<CompanyEntity> getCompanyById(String id) {
-        return companyRepository.findById(id);
+    public Optional<Company> getCompanyById(String id) {
+        return companyRepository.findById(id).map(companyMapper::map);
     }
 
     @Override
-    public boolean deleteCompany(String id) {
-        if(companyRepository.existsById(id)){
+    public Optional<Company> deleteCompany(String id) {
+        Optional<CompanyEntity> entity = companyRepository.findById(id);
+        if (entity.isPresent()) {
             companyRepository.deleteById(id);
-            return true;
+            return Optional.of(new Company());
+        } else {
+            return Optional.empty();
         }
-        return false;
     }
 
     @Override
-    public CompanyEntity updateTruck(String id, CompanyEntity company) {
-        if(companyRepository.existsById(id)){
+    public Optional<Company> updateCompany(String id, Company company) {
+        if(companyRepository.existsById(id)) {
             company.setId(id);
-            return companyRepository.save(company);
+            return Optional.ofNullable(companyMapper.map(companyRepository.save(
+                    companyMapper.map(company))));
         }
-        return null;
+        return Optional.empty();
     }
 }
