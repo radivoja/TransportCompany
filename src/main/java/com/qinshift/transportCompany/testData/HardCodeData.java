@@ -1,5 +1,9 @@
 package com.qinshift.transportCompany.testData;
 
+import com.qinshift.transportCompany.entity.CompanyEntity;
+import com.qinshift.transportCompany.entity.DriverEntity;
+import com.qinshift.transportCompany.entity.GoodsEntity;
+import com.qinshift.transportCompany.entity.TruckEntity;
 import com.qinshift.transportCompany.repository.CompanyRepository;
 import com.qinshift.transportCompany.repository.DriverRepository;
 import com.qinshift.transportCompany.repository.GoodsRepository;
@@ -7,6 +11,9 @@ import com.qinshift.transportCompany.repository.TruckRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RequiredArgsConstructor
 @Component
@@ -19,9 +26,6 @@ public class HardCodeData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
-
-/*
         //Company data
         CompanyEntity jareAndCuturaCo = CompanyEntity.builder()
                 .id("C-1")
@@ -81,8 +85,6 @@ public class HardCodeData implements CommandLineRunner {
 
         goodsRepository.save(coal);
         goodsRepository.save(potato);
-
-*/
 
     }
 }
