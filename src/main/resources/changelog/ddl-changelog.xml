@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1" author="radivoja" context="test">
+        <createTable tableName="company">
+            <column name="id" type="integer">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="name" type="varchar(255)"/>
+            <column name="location" type="varchar(255)"/>
+        </createTable>
+
+        <createTable tableName="driver" >
+            <column name="id" type="integer">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="name" type="varchar(255)"/>
+            <column name="experience" type="integer"/>
+            <column name="truck_id" type="integer">
+                <constraints unique="true" />
+            </column>
+            <column name="company_id" type="integer"/>
+        </createTable>
+
+        <createTable tableName="truck" >
+            <column name="id" type="integer">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="weight" type="integer"/>
+            <column name="age" type="integer"/>
+            <column name="driver_id" type="integer">
+                <constraints unique="true" />
+            </column>
+
+
+        </createTable>
+
+        <createTable tableName="goods" >
+            <column name="id" type="integer">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="name" type="varchar(255)"/>
+            <column name="category" type="varchar(255)"/>
+        </createTable>
+
+    </changeSet>
+
+    <!--ManyToMany relationship Truck to Goods -->
+    <changeSet id="2" author="radivoja" context="test">
+        <createTable tableName="truck_goods">
+            <column name="truck_id" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="goods_id" type="integer">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        <addForeignKeyConstraint constraintName="fk_truck_goods"
+                                 baseTableName="truck_goods" baseColumnNames="truck_id"
+                                 referencedTableName="truck" referencedColumnNames="id"/>
+        <addForeignKeyConstraint constraintName="fk_goods"
+                                 baseTableName="truck_goods" baseColumnNames="goods_id"
+                                 referencedTableName="goods" referencedColumnNames="id"/>
+    </changeSet>
+
+    <!--OneToOne relationship Truck to Driver -->
+    <changeSet id="3" author="radivoja" context="test">
+        <addForeignKeyConstraint constraintName="fk_truck_driver"
+                                 baseTableName="truck" baseColumnNames="driver_id"
+                                 referencedTableName="driver" referencedColumnNames="id"/>
+        <addForeignKeyConstraint constraintName="fk_driver_truck"
+                                 baseTableName="driver" baseColumnNames="truck_id"
+                                 referencedTableName="truck" referencedColumnNames="id"/>
+    </changeSet>
+
+    <!--OneToMany relationship Company to Driver -->
+    <changeSet id="4" author="radivoja" context="test">
+        <createTable tableName="company_drivers">
+            <column name="company_id" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="driver_id" type="integer">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint constraintName="fk_company_drivers_c"
+               baseTableName="company_drivers" baseColumnNames="company_id"
+               referencedTableName="company" referencedColumnNames="id"/>
+        <addForeignKeyConstraint constraintName="fk_company_drivers_d"
+                                 baseTableName="company_drivers" baseColumnNames="driver_id"
+                                 referencedTableName="driver" referencedColumnNames="id"/>
+    </changeSet>
+
+    <!--ManyToOne relationship Driver to Company -->
+    <changeSet id="5" author="radivoja" context="test">
+        <addForeignKeyConstraint constraintName="fk_driver_company"
+                                 baseTableName="driver" baseColumnNames="company_id"
+                                 referencedTableName="company" referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>

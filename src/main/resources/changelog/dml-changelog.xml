@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+
+    <changeSet id="1" author="radivoja" context="test">
+        <insert tableName="company">
+            <column name="id" valueNumeric="1"/>
+            <column name="name" value="Company #1"/>
+            <column name="location" value="City #1"/>
+        </insert>
+        <insert tableName="company">
+            <column name="id" valueNumeric="2"/>
+            <column name="name" value="Company #1"/>
+            <column name="location" value="City #2"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="2" author="radivoja" context="test">
+        <insert tableName="truck">
+            <column name="id" value="1"/>
+            <column name="weight" valueNumeric="20"/>
+            <column name="age" valueNumeric="5"/>
+        </insert>
+
+        <insert tableName="driver">
+            <column name="id" valueNumeric="1"/>
+            <column name="name" value="Driver #1"/>
+            <column name="experience" valueNumeric="1"/>
+            <column name="truck_id" valueNumeric="1"/>
+            <column name="company_id" valueNumeric="1"/>
+        </insert>
+        <update tableName="truck">
+            <column name="driver_id" valueNumeric="1"/>
+        </update>
+
+    </changeSet>
+
+    <changeSet id="3" author="radivoja" context="test">
+        <insert tableName="truck">
+            <column name="id" value="2"/>
+            <column name="weight" valueNumeric="15"/>
+            <column name="age" valueNumeric="10"/>
+        </insert>
+
+        <insert tableName="driver">
+            <column name="id" valueNumeric="2"/>
+            <column name="name" value="Driver #2"/>
+            <column name="experience" valueNumeric="5"/>
+            <column name="truck_id" valueNumeric="2"/>
+            <column name="company_id" valueNumeric="1"/>
+        </insert>
+
+    </changeSet>
+
+    <changeSet id="4" author="radivoja" context="test">
+        <insert tableName="goods">
+            <column name="id" value="1"/>
+            <column name="name" value="Coal"/>
+            <column name="category" value="Mineral"/>
+        </insert>
+
+        <insert tableName="truck_goods">
+            <column name="truck_id" value="1"/>
+            <column name="goods_id" value="1"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="5" author="radivoja" context="test">
+        <insert tableName="company_drivers">
+            <column name="company_id" value="1"/>
+            <column name="driver_id" value="1"/>
+        </insert>
+
+        <insert tableName="company_drivers">
+            <column name="company_id" value="1"/>
+            <column name="driver_id" value="2"/>
+        </insert>
+
+    </changeSet>
+
+
+
+</databaseChangeLog>
