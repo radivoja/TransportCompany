@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface TruckRepository extends JpaRepository<TruckEntity, String> {
-    List<TruckEntity> findTrucksByGoodsId(String id);
+public interface TruckRepository extends JpaRepository<TruckEntity, Integer> {
+    List<TruckEntity> findTrucksByGoodsId(Integer id);
 }

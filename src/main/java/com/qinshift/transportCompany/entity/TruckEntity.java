@@ -13,7 +13,7 @@ import java.util.List;
 public class TruckEntity {
 
     @Id
-    private String id;
+    private Integer id;
 
     private Integer weight ;
 

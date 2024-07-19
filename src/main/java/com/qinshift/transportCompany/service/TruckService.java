@@ -9,16 +9,16 @@ import java.util.Optional;
 public interface TruckService {
     List<Truck> findAll();
 
-    Optional<Truck> getTruck(String id);
+    Optional<Truck> getTruck(Integer id);
 
     Optional<Truck> createTruck(Truck truck);
 
-    Optional<Truck> updateTruck(String id, Truck truck);
+    Optional<Truck> updateTruck(Integer id, Truck truck);
 
-    Optional<Truck> deleteTruck(String id);
+    Optional<Truck> deleteTruck(Integer id);
 
-    List<Truck> findTrucksByGoodsId(String id);
+    List<Truck> findTrucksByGoodsId(Integer id);
 
-    boolean assignTruckToGoods(String truckId, String goodsId);
+    boolean assignTruckToGoods(Integer truckId, Integer goodsId);
 
 }

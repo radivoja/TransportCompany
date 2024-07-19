@@ -15,7 +15,7 @@ import java.util.List;
 @Table(name = "company")
 public class CompanyEntity {
     @Id
-    private String id;
+    private Integer id;
     private String name;
     private String location;
 

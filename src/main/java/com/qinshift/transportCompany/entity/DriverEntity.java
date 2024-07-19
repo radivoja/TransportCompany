@@ -12,7 +12,7 @@ import lombok.*;
 public class DriverEntity {
 
     @Id
-    private String id;
+    private Integer id;
     private String name;
     private int experience;
 

@@ -29,7 +29,7 @@ paths:
       - name: id
         description: id
         schema:
-          type: string
+          type: integer
         in: path
         required: true
     get:
@@ -73,7 +73,7 @@ paths:
       - name: idd
         description: id param
         schema:
-          type: string
+          type: integer
         in: path
         required: true
     delete:
@@ -96,7 +96,7 @@ paths:
       - name: idp
         description: idp
         schema:
-          type: string
+          type: integer
         in: path
         required: true
     put:
@@ -197,7 +197,7 @@ paths:
       - name: id
         description: id
         schema:
-          type: string
+          type: integer
         in: path
         required: true
     get:
@@ -240,7 +240,7 @@ paths:
       - name: idt
         description: idt
         schema:
-          type: string
+          type: integer
         in: path
         required: true
     put:
@@ -266,16 +266,16 @@ paths:
   /apiFirst/trucks/{idd}:
     parameters:
       - name: idd
-        description: idd
+        description: id of Truck
         schema:
-          type: string
+          type: integer
         in: path
         required: true
     delete:
       summary: delete
       tags:
         - "Truck"
-      description: dsd
+      description: delete Truck
       operationId: deleteTruck
       responses:
         "200":
@@ -290,7 +290,7 @@ paths:
       - name: goodsId
         description: goods id
         schema:
-          type: string
+          type: integer
         in: path
         required: true
     get:
@@ -314,13 +314,13 @@ paths:
       - name: truckId
         description: truck Id
         schema:
-          type: string
+          type: integer
         in: path
         required: true
       - name: goodsId
         description: goods Id
         schema:
-          type: string
+          type: integer
         in: path
         required: true
     put:
@@ -344,7 +344,7 @@ components:
       properties:
         id:
           description: id
-          type: string
+          type: integer
         name:
           description: name
           type: string
@@ -362,7 +362,7 @@ components:
       properties:
         id:
           description: Id of driver
-          type: string
+          type: integer
         name:
           description: name
           type: string
@@ -382,7 +382,7 @@ components:
       properties:
         id:
           description: Id of the truck
-          type: string
+          type: integer
         weight:
           description: weight
           type: integer
@@ -403,7 +403,7 @@ components:
       properties:
         id:
           description: id
-          type: string
+          type: integer
         name:
           description: name
           type: string

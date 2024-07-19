@@ -13,7 +13,7 @@ import java.util.List;
 @Table(name = "goods")
 public class GoodsEntity {
     @Id
-    private String id;
+    private Integer id;
     private String name;
     private String category;
 

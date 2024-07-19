@@ -27,7 +27,7 @@ public class TruckServiceImpl implements TruckService {
     }
 
     @Override
-    public Optional<Truck> getTruck(String id) {
+    public Optional<Truck> getTruck(Integer id) {
         return truckRepository.findById(id).map(truckMapper::map);
     }
 
@@ -41,7 +41,7 @@ public class TruckServiceImpl implements TruckService {
     }
 
     @Override
-    public Optional<Truck> updateTruck(String id, Truck truck) {
+    public Optional<Truck> updateTruck(Integer id, Truck truck) {
         if(truckRepository.existsById(id)) {
             truck.setId(id);
             return Optional.ofNullable(truckMapper.map(truckRepository.save(
@@ -51,7 +51,7 @@ public class TruckServiceImpl implements TruckService {
     }
 
     @Override
-    public Optional<Truck> deleteTruck(String id) {
+    public Optional<Truck> deleteTruck(Integer id) {
         Optional<TruckEntity> entity = truckRepository.findById(id);
         if (entity.isPresent()) {
             truckRepository.deleteById(id);
@@ -62,12 +62,12 @@ public class TruckServiceImpl implements TruckService {
     }
 
     @Override
-    public List<Truck> findTrucksByGoodsId(String id) {
+    public List<Truck> findTrucksByGoodsId(Integer id) {
         return truckMapper.mapToDto(truckRepository.findTrucksByGoodsId(id));
     }
 
     @Override
-    public boolean assignTruckToGoods(String truckId, String goodsId) {
+    public boolean assignTruckToGoods(Integer truckId, Integer goodsId) {
         Optional<TruckEntity> truck = truckRepository.findById(truckId);
         Optional<GoodsEntity> goods = goodsRepository.findById(goodsId);
 

@@ -1,8 +1,6 @@
 package com.qinshift.transportCompany.controller;
 
 import com.qinshift.transportCompany.dto.Truck;
-import com.qinshift.transportCompany.entity.TruckEntity;
-import com.qinshift.transportCompany.mappers.TruckMapper;
 import com.qinshift.transportCompany.service.TruckService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,7 +16,7 @@ public class TruckController implements TruckApi{
     private final TruckService truckService;
     
     @Override
-    public ResponseEntity<String> assignTruckToGoods(String truckId, String goodsId) {
+    public ResponseEntity<String> assignTruckToGoods(Integer truckId, Integer goodsId) {
         if(truckService.assignTruckToGoods(truckId, goodsId)){
             return new ResponseEntity<>("Successfully assigned", HttpStatus.ACCEPTED);
         }
@@ -36,7 +34,7 @@ public class TruckController implements TruckApi{
     }
 
     @Override
-    public ResponseEntity<String> deleteTruck(String idd) {
+    public ResponseEntity<String> deleteTruck(Integer idd) {
         if(truckService.deleteTruck(idd).isPresent()){
             return ResponseEntity.status(HttpStatus.CREATED).body("Successfully deleted");
         } else {
@@ -45,7 +43,7 @@ public class TruckController implements TruckApi{
     }
 
     @Override
-    public ResponseEntity<Truck> getTruckById(String id) {
+    public ResponseEntity<Truck> getTruckById(Integer id) {
         return ResponseEntity.of(truckService.getTruck(id));
     }
 
@@ -55,13 +53,13 @@ public class TruckController implements TruckApi{
     }
 
     @Override
-    public ResponseEntity<List<Truck>> getTrucksByGoodsId(String goodsId) {
+    public ResponseEntity<List<Truck>> getTrucksByGoodsId(Integer goodsId) {
         return ResponseEntity.ofNullable(truckService.findTrucksByGoodsId(goodsId));
 
     }
 
     @Override
-    public ResponseEntity<Truck> updateTruck(String idt, Truck body) {
+    public ResponseEntity<Truck> updateTruck(Integer idt, Truck body) {
         return ResponseEntity.of(truckService.updateTruck(idt, body));
     }
 }

@@ -32,12 +32,12 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public Optional<Company> getCompanyById(String id) {
+    public Optional<Company> getCompanyById(Integer id) {
         return companyRepository.findById(id).map(companyMapper::map);
     }
 
     @Override
-    public Optional<Company> deleteCompany(String id) {
+    public Optional<Company> deleteCompany(Integer id) {
         Optional<CompanyEntity> entity = companyRepository.findById(id);
         if (entity.isPresent()) {
             companyRepository.deleteById(id);
@@ -48,7 +48,7 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public Optional<Company> updateCompany(String id, Company company) {
+    public Optional<Company> updateCompany(Integer id, Company company) {
         if(companyRepository.existsById(id)) {
             company.setId(id);
             return Optional.ofNullable(companyMapper.map(companyRepository.save(

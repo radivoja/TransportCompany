@@ -22,7 +22,7 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-    public Optional<Goods> getGoodsById(String id) {
+    public Optional<Goods> getGoodsById(Integer id) {
         return goodsRepository.findById(id).map(goodsMapper::map);
     }
 }

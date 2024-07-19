@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface CompanyService {
     List<Company>  listAll();
     Optional<Company> createCompany(Company company);
-    Optional<Company> getCompanyById(String id);
-    Optional<Company> deleteCompany(String id);
-    Optional<Company> updateCompany(String id, Company entity);
+    Optional<Company> getCompanyById(Integer id);
+    Optional<Company> deleteCompany(Integer id);
+    Optional<Company> updateCompany(Integer id, Company entity);
 }

@@ -10,5 +10,5 @@ public interface GoodsService {
 
     List<Goods> listAll();
 
-    Optional<Goods> getGoodsById(String id);
+    Optional<Goods> getGoodsById(Integer id);
 }

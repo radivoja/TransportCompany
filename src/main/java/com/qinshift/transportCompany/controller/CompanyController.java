@@ -24,7 +24,7 @@ public class CompanyController implements CompanyApi {
     }
 
     @Override
-    public ResponseEntity<String> deleteCompanyById(String idd) {
+    public ResponseEntity<String> deleteCompanyById(Integer idd) {
         if(companyService.deleteCompany(idd).isPresent()){
             return ResponseEntity.status(HttpStatus.CREATED).body("Successfully deleted");
         } else {
@@ -38,12 +38,12 @@ public class CompanyController implements CompanyApi {
     }
 
     @Override
-    public ResponseEntity<Company> getCompanyById(String id) {
+    public ResponseEntity<Company> getCompanyById(Integer id) {
         return ResponseEntity.of(companyService.getCompanyById(id));
     }
 
     @Override
-    public ResponseEntity<Company> updateCompany(String idp, Company body) {
+    public ResponseEntity<Company> updateCompany(Integer idp, Company body) {
         return ResponseEntity.of(companyService.updateCompany(idp, body));
     }
 }
