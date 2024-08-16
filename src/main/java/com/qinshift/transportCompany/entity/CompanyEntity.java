@@ -1,9 +1,6 @@
 package com.qinshift.transportCompany.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
@@ -20,6 +17,6 @@ public class CompanyEntity {
     private String location;
 
     @ToString.Exclude
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "company")
     private List<DriverEntity> drivers;
 }

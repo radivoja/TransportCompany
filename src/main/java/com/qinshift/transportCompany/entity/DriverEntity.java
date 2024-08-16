@@ -20,7 +20,8 @@ public class DriverEntity {
     private TruckEntity truck;
 
     @ToString.Exclude
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "company_id")
     private CompanyEntity company;
 
 }
