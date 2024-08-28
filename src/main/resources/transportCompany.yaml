@@ -383,20 +383,51 @@ components:
         id:
           description: Id of the truck
           type: integer
-        weight:
-          description: weight
+        vehicleWeight:
+          description: vehicle weight
           type: integer
-        age:
-          description: age manufactured
+        model:
+          description: model
+          type: string
+        manufacturer:
+          description: name of the manufacturer
           type: integer
+        yearManufactored:
+          description: year of manufactore
+          type: integer
+        horsePower:
+          description: max horse power
+          type: integer          
+        torque:
+          description: torque
+          type: integer
+        cargoCapacity:
+          description: cargo capacity
+          type: number          
+          format: double
+        aerodynamics:
+          description: does it posses aerodynamics system
+          type: boolean
+        fuelType:
+          $ref: '#/components/schemas/FuelType'
         driver:
-          type:
           $ref: '#/components/schemas/Driver'
-        goods:
+        shipment:
           type: array
           items:
-            $ref: '#/components/schemas/Goods'
+            $ref: '#/components/schemas/Shipment'
 
+    FuelType:
+      description: Fuel types
+      type: string 
+      enum:
+        - GASOLINE
+        - DIESEL
+        - ETHANOL
+        - LIQUID_PETROLEUM_GAS
+        - BIO_DIESEL
+        - COMPRESSED_NATURAL_GAS
+        - ELECTRIC_POWER
     Goods:
       description: This is goods
       type: object
@@ -410,7 +441,32 @@ components:
         category:
           description: category
           type: string
-        trucks:
+        shipments:
           type: array
           items:
-            $ref: '#/components/schemas/Truck'
+            $ref: '#/components/schemas/Shipment'
+                        
+    Shipment:
+      description: Shipment object
+      type: object
+      properties:
+        id:
+          description: id
+          type: integer
+        dateLoaded:
+          description: dateLoaded
+          type: string
+        destination:
+          description: destination
+          type: string
+        distance:
+          description: distance
+          type: number
+          format: double
+        goods:
+          type: array
+          items:
+            $ref: '#/components/schemas/Goods'
+        truck:
+          $ref: '#/components/schemas/Truck'            
+

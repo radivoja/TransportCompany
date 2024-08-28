@@ -19,6 +19,6 @@ public class GoodsEntity {
 
     @ToString.Exclude
     @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
-    @JoinTable(name = "truck_goods")
-    private List<TruckEntity> trucks;
+    @JoinTable(name = "shipping_goods")
+    private List<ShipmentEntity> shipments;
 }

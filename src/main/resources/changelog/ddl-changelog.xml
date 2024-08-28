@@ -101,5 +101,61 @@
                                  baseTableName="driver" baseColumnNames="company_id"
                                  referencedTableName="company" referencedColumnNames="id"/>
     </changeSet>
+	
+    <changeSet id="6" author="radivoja">
+		<dropTable tableName="truck_goods"/>	
+	</changeSet>
+	
+    <changeSet id="7" author="radivoja">	
+        <addColumn tableName="truck">
+            <column name="model" type="varchar(255)"/>
+            <column name="manufacturer" type="varchar(255)"/>
+            <column name="horsePower" type="integer"/>
+            <column name="torque" type="integer"/>
+			<column name="cargoCapacity" type="double precision"/>
+            <column name="aerodynamics" type="boolean"/>
+            <column name="fuelType" type="varchar(255)"/>		
+        </addColumn>
+	</changeSet>
+	
+    <changeSet id="8" author="radivoja">	
+		<renameColumn tableName="truck" oldColumnName="age" newColumnName="yearManufactured"/>
+		<renameColumn tableName="truck" oldColumnName="weight" newColumnName="vehicleWeight"/>
+	</changeSet>
+	
+    <changeSet id="9" author="radivoja">					
+        <createTable tableName="shipment">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="dateLoaded" type="date"/>
+            <column name="destination" type="varchar(255)"/>
+			<column name="distance" type="double precision"/>
+            <column name="truck_id" type="integer">
+                <constraints unique="true" />
+            </column>
+		</createTable>
+	</changeSet>
 
+    <changeSet id="10" author="radivoja">	
+        <createTable tableName="shipping_goods">
+            <column name="shipment_id" type="bigint">
+			     <constraints nullable="false" unique="true"/>
+			</column>
+            <column name="goods_id" type="integer">
+				<constraints nullable="false" unique="true"/>
+			</column>
+        </createTable>
+	</changeSet>			
+
+    <changeSet id="11" author="radivoja">			
+		<addForeignKeyConstraint constraintName="fk_shipment_goods"
+                                 baseTableName="shipping_goods" baseColumnNames="shipment_id"
+                                 referencedTableName="shipment" referencedColumnNames="id"/>
+								 
+        <addForeignKeyConstraint constraintName="fk_goods_shipment"
+                                 baseTableName="shipping_goods" baseColumnNames="goods_id"
+                                 referencedTableName="goods" referencedColumnNames="id"/>
+    </changeSet>	
+	
 </databaseChangeLog>

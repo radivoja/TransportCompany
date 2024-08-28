@@ -1,5 +1,6 @@
 package com.qinshift.transportCompany.entity;
 
+import com.qinshift.transportCompany.entity.enums.FuelType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,14 +16,30 @@ public class TruckEntity {
     @Id
     private Integer id;
 
-    private Integer weight ;
+    private Integer vehicleWeight;
 
-    private Integer age;
+    private String model;
+
+    private String manufacturer;
+
+    private Integer yearManufactured;
+
+    private Integer horsePower;
+
+    private Integer torque;
+
+    private Double cargoCapacity;
+
+    private Boolean aerodynamics;
+
+    @Enumerated(EnumType.STRING)
+    private FuelType fuelType;
 
     @OneToOne
     private DriverEntity driver;
 
-    @ToString.Exclude
-    @ManyToMany(mappedBy = "trucks")
-    private List<GoodsEntity> goods;
+    @OneToMany(mappedBy = "truck")
+    private List<ShipmentEntity> shipments;
+
+
 }
