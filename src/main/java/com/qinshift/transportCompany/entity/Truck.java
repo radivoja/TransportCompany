@@ -11,7 +11,7 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "truck")
-public class TruckEntity {
+public class Truck {
 
     @Id
     private Integer id;
@@ -36,10 +36,10 @@ public class TruckEntity {
     private FuelType fuelType;
 
     @OneToOne
-    private DriverEntity driver;
+    private Driver driver;
 
     @OneToMany(mappedBy = "truck")
-    private List<ShipmentEntity> shipments;
+    private List<Shipment> shipments;
 
 
 }

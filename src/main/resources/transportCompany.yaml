@@ -21,7 +21,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Company'
+                  $ref: '#/components/schemas/CompanyDto'
 
 
   /apiFirst/companies/{id}:
@@ -44,7 +44,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Company'
+                $ref: '#/components/schemas/CompanyDto'
 
   /apiFirst/companies/create:
     post:
@@ -59,7 +59,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Company'
+              $ref: '#/components/schemas/CompanyDto'
       responses:
         "200":
           description: Created
@@ -110,14 +110,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Company'
+              $ref: '#/components/schemas/CompanyDto'
       responses:
         '200':
           description: Update
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Company'
+                $ref: '#/components/schemas/CompanyDto'
 
   /apiFirst/drivers:
     get:
@@ -134,7 +134,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Driver'
+                  $ref: '#/components/schemas/DriverDto'
 
 
   /apiFirst/drivers/create:
@@ -149,7 +149,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Driver'
+              $ref: '#/components/schemas/DriverDto'
       responses:
         '201':
           description: Created
@@ -173,7 +173,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Goods'
+                  $ref: '#/components/schemas/GoodsDto'
 
   /apiFirst/trucks:
     get:
@@ -190,7 +190,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Truck'
+                  $ref: '#/components/schemas/TruckDto'
 
   /apiFirst/trucks/{id}:
     parameters:
@@ -211,7 +211,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Truck'
+                $ref: '#/components/schemas/TruckDto'
 
   /apiFirst/trucks/create:
     post:
@@ -225,7 +225,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Truck'
+              $ref: '#/components/schemas/TruckDto'
       responses:
         '201':
           description: Created
@@ -254,14 +254,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Truck'
+              $ref: '#/components/schemas/TruckDto'
       responses:
         '201':
           description: Created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Truck'
+                $ref: '#/components/schemas/TruckDto'
 
   /apiFirst/trucks/{idd}:
     parameters:
@@ -306,7 +306,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Truck'
+                  $ref: '#/components/schemas/TruckDto'
 
 
   /apiFirst/trucks/{truckId}/goods/{goodsId}:
@@ -338,7 +338,7 @@ paths:
 
 components:
   schemas:
-    Company:
+    CompanyDto:
       description: company
       type: object
       properties:
@@ -354,9 +354,9 @@ components:
         drivers:
           type: array
           items:
-            $ref: '#/components/schemas/Driver'
+            $ref: '#/components/schemas/DriverDto'
 
-    Driver:
+    DriverDto:
       description: driver
       type: object
       properties:
@@ -371,12 +371,12 @@ components:
           type: integer
         company:
           type:
-          $ref: '#/components/schemas/Company'
+          $ref: '#/components/schemas/CompanyDto'
         truck:
           type:
-          $ref: '#/components/schemas/Truck'
+          $ref: '#/components/schemas/TruckDto'
 
-    Truck:
+    TruckDto:
       description: This is the truck model
       type: object
       properties:
@@ -392,8 +392,8 @@ components:
         manufacturer:
           description: name of the manufacturer
           type: integer
-        yearManufactored:
-          description: year of manufactore
+        yearManufactured:
+          description: year of manufacture
           type: integer
         horsePower:
           description: max horse power
@@ -411,11 +411,11 @@ components:
         fuelType:
           $ref: '#/components/schemas/FuelType'
         driver:
-          $ref: '#/components/schemas/Driver'
+          $ref: '#/components/schemas/DriverDto'
         shipment:
           type: array
           items:
-            $ref: '#/components/schemas/Shipment'
+            $ref: '#/components/schemas/ShipmentDto'
 
     FuelType:
       description: Fuel types
@@ -428,7 +428,7 @@ components:
         - BIO_DIESEL
         - COMPRESSED_NATURAL_GAS
         - ELECTRIC_POWER
-    Goods:
+    GoodsDto:
       description: This is goods
       type: object
       properties:
@@ -444,9 +444,9 @@ components:
         shipments:
           type: array
           items:
-            $ref: '#/components/schemas/Shipment'
+            $ref: '#/components/schemas/ShipmentDto'
                         
-    Shipment:
+    ShipmentDto:
       description: Shipment object
       type: object
       properties:
@@ -466,7 +466,7 @@ components:
         goods:
           type: array
           items:
-            $ref: '#/components/schemas/Goods'
+            $ref: '#/components/schemas/GoodsDto'
         truck:
-          $ref: '#/components/schemas/Truck'            
+          $ref: '#/components/schemas/TruckDto'            
 

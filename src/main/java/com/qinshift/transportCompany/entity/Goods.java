@@ -11,7 +11,7 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "goods")
-public class GoodsEntity {
+public class Goods {
     @Id
     private Integer id;
     private String name;
@@ -20,5 +20,5 @@ public class GoodsEntity {
     @ToString.Exclude
     @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
     @JoinTable(name = "shipping_goods")
-    private List<ShipmentEntity> shipments;
+    private List<Shipment> shipments;
 }

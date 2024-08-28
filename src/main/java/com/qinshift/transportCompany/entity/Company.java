@@ -10,7 +10,7 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "company")
-public class CompanyEntity {
+public class Company {
     @Id
     private Integer id;
     private String name;
@@ -18,5 +18,5 @@ public class CompanyEntity {
 
     @ToString.Exclude
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "company")
-    private List<DriverEntity> drivers;
+    private List<Driver> drivers;
 }

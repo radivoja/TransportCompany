@@ -9,7 +9,7 @@ import lombok.*;
 @Builder
 @Entity
 @Table(name = "driver")
-public class DriverEntity {
+public class Driver {
 
     @Id
     private Integer id;
@@ -17,11 +17,11 @@ public class DriverEntity {
     private int experience;
 
     @OneToOne
-    private TruckEntity truck;
+    private Truck truck;
 
     @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
-    private CompanyEntity company;
+    private Company company;
 
 }
