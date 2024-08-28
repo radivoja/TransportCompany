@@ -1,6 +1,6 @@
 package com.qinshift.transportCompany.service.impl;
 
-import com.qinshift.transportCompany.dto.Driver;
+import com.qinshift.transportCompany.dto.DriverDto;
 import com.qinshift.transportCompany.mappers.DriverMapper;
 import com.qinshift.transportCompany.repository.DriverRepository;
 import com.qinshift.transportCompany.service.DriverService;
@@ -17,7 +17,7 @@ public class DriverServiceImpl implements DriverService {
     private final DriverMapper driverMapper;
 
     @Override
-    public Optional<Driver> createDriver(Driver driver) {
+    public Optional<DriverDto> createDriver(DriverDto driver) {
         if(driverRepository.existsById(driver.getId())){
             return Optional.empty();
         }
@@ -26,7 +26,7 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
-    public List<Driver> listAll() {
+    public List<DriverDto> listAll() {
         return driverMapper.mapToDto(driverRepository.findAll());
     }
 }

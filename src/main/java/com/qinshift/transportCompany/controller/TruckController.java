@@ -1,6 +1,6 @@
 package com.qinshift.transportCompany.controller;
 
-import com.qinshift.transportCompany.dto.Truck;
+import com.qinshift.transportCompany.dto.TruckDto;
 import com.qinshift.transportCompany.service.TruckService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,15 +17,15 @@ public class TruckController implements TruckApi{
     
     @Override
     public ResponseEntity<String> assignTruckToGoods(Integer truckId, Integer goodsId) {
-        if(truckService.assignTruckToGoods(truckId, goodsId)){
+       /* if(truckService.assignTruckToGoods(truckId, goodsId)){
             return new ResponseEntity<>("Successfully assigned", HttpStatus.ACCEPTED);
-        }
+        }*/
 
         return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
     }
 
     @Override
-    public ResponseEntity<String> createTruck(Truck body) {
+    public ResponseEntity<String> createTruck(TruckDto body) {
         if (truckService.createTruck(body).isPresent()) {
             return ResponseEntity.status(HttpStatus.CREATED).body("Successfully created");
         }
@@ -43,23 +43,23 @@ public class TruckController implements TruckApi{
     }
 
     @Override
-    public ResponseEntity<Truck> getTruckById(Integer id) {
+    public ResponseEntity<TruckDto> getTruckById(Integer id) {
         return ResponseEntity.of(truckService.getTruck(id));
     }
 
     @Override
-    public ResponseEntity<List<Truck>> getTrucks() {
+    public ResponseEntity<List<TruckDto>> getTrucks() {
         return ResponseEntity.ok(truckService.findAll());
     }
 
     @Override
-    public ResponseEntity<List<Truck>> getTrucksByGoodsId(Integer goodsId) {
-        return ResponseEntity.ofNullable(truckService.findTrucksByGoodsId(goodsId));
+    public ResponseEntity<List<TruckDto>> getTrucksByGoodsId(Integer goodsId) {
+        return null;
 
     }
 
     @Override
-    public ResponseEntity<Truck> updateTruck(Integer idt, Truck body) {
+    public ResponseEntity<TruckDto> updateTruck(Integer idt, TruckDto body) {
         return ResponseEntity.of(truckService.updateTruck(idt, body));
     }
 }

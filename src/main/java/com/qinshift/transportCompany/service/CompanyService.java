@@ -1,15 +1,15 @@
 package com.qinshift.transportCompany.service;
 
-import com.qinshift.transportCompany.dto.Company;
+import com.qinshift.transportCompany.dto.CompanyDto;
 
 import java.util.List;
 import java.util.Optional;
 
 
 public interface CompanyService {
-    List<Company>  listAll();
-    Optional<Company> createCompany(Company company);
-    Optional<Company> getCompanyById(Integer id);
-    Optional<Company> deleteCompany(Integer id);
-    Optional<Company> updateCompany(Integer id, Company entity);
+    List<CompanyDto>  listAll();
+    Optional<CompanyDto> createCompany(CompanyDto company);
+    Optional<CompanyDto> getCompanyById(Integer id);
+    Optional<CompanyDto> deleteCompany(Integer id);
+    Optional<CompanyDto> updateCompany(Integer id, CompanyDto company);
 }

@@ -1,6 +1,6 @@
 package com.qinshift.transportCompany.service;
 
-import com.qinshift.transportCompany.dto.Goods;
+import com.qinshift.transportCompany.dto.GoodsDto;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface GoodsService {
 
-    List<Goods> listAll();
+    List<GoodsDto> listAll();
 
-    Optional<Goods> getGoodsById(Integer id);
+    Optional<GoodsDto> getGoodsById(Integer id);
 }

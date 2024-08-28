@@ -1,8 +1,7 @@
 package com.qinshift.transportCompany.service.impl;
 
-import com.qinshift.transportCompany.dto.Truck;
-import com.qinshift.transportCompany.entity.GoodsEntity;
-import com.qinshift.transportCompany.entity.TruckEntity;
+import com.qinshift.transportCompany.dto.TruckDto;
+import com.qinshift.transportCompany.entity.Truck;
 import com.qinshift.transportCompany.mappers.TruckMapper;
 import com.qinshift.transportCompany.repository.GoodsRepository;
 import com.qinshift.transportCompany.repository.TruckRepository;
@@ -22,17 +21,17 @@ public class TruckServiceImpl implements TruckService {
     private final TruckMapper truckMapper;
 
     @Override
-    public List<Truck> findAll() {
+    public List<TruckDto> findAll() {
         return truckMapper.mapToDto(truckRepository.findAll());
     }
 
     @Override
-    public Optional<Truck> getTruck(Integer id) {
+    public Optional<TruckDto> getTruck(Integer id) {
         return truckRepository.findById(id).map(truckMapper::map);
     }
 
     @Override
-    public Optional<Truck> createTruck(Truck truck) {
+    public Optional<TruckDto> createTruck(TruckDto truck) {
         if(truckRepository.existsById(truck.getId())){
             return Optional.empty();
         }
@@ -41,7 +40,7 @@ public class TruckServiceImpl implements TruckService {
     }
 
     @Override
-    public Optional<Truck> updateTruck(Integer id, Truck truck) {
+    public Optional<TruckDto> updateTruck(Integer id, TruckDto truck) {
         if(truckRepository.existsById(id)) {
             truck.setId(id);
             return Optional.ofNullable(truckMapper.map(truckRepository.save(
@@ -51,22 +50,24 @@ public class TruckServiceImpl implements TruckService {
     }
 
     @Override
-    public Optional<Truck> deleteTruck(Integer id) {
-        Optional<TruckEntity> entity = truckRepository.findById(id);
+    public Optional<TruckDto> deleteTruck(Integer id) {
+        Optional<Truck> entity = truckRepository.findById(id);
         if (entity.isPresent()) {
             truckRepository.deleteById(id);
-            return Optional.of(new Truck());
+            return Optional.of(new TruckDto());
         } else {
             return Optional.empty();
         }
     }
 
-    @Override
+  /*  @Override
     public List<Truck> findTrucksByGoodsId(Integer id) {
         return truckMapper.mapToDto(truckRepository.findTrucksByGoodsId(id));
     }
 
-    @Override
+  
+
+    /*@Override
     public boolean assignTruckToGoods(Integer truckId, Integer goodsId) {
         Optional<TruckEntity> truck = truckRepository.findById(truckId);
         Optional<GoodsEntity> goods = goodsRepository.findById(goodsId);
@@ -75,11 +76,13 @@ public class TruckServiceImpl implements TruckService {
             return false;
         }
 
-        List<GoodsEntity> listOfGoods = truck.get().getGoods();
+       List<GoodsEntity> listOfGoods = truck.get().getGoods();
         listOfGoods.add(goods.get());
 
         List<TruckEntity> listOfTrucks = goods.get().getTrucks();
         listOfTrucks.add(truck.get());
+
+
 
         truck.get().setGoods(listOfGoods);
         goods.get().setTrucks(listOfTrucks);
@@ -90,4 +93,7 @@ public class TruckServiceImpl implements TruckService {
         return true;
     }
 
+
+
+     */
 }

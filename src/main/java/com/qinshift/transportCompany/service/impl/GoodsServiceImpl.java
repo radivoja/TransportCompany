@@ -1,6 +1,6 @@
 package com.qinshift.transportCompany.service.impl;
 
-import com.qinshift.transportCompany.dto.Goods;
+import com.qinshift.transportCompany.dto.GoodsDto;
 import com.qinshift.transportCompany.mappers.GoodsMapper;
 import com.qinshift.transportCompany.repository.GoodsRepository;
 import com.qinshift.transportCompany.service.GoodsService;
@@ -17,12 +17,12 @@ public class GoodsServiceImpl implements GoodsService {
     private final GoodsMapper goodsMapper;
 
     @Override
-    public List<Goods> listAll() {
+    public List<GoodsDto> listAll() {
         return goodsMapper.mapToDto(goodsRepository.findAll());
     }
 
     @Override
-    public Optional<Goods> getGoodsById(Integer id) {
+    public Optional<GoodsDto> getGoodsById(Integer id) {
         return goodsRepository.findById(id).map(goodsMapper::map);
     }
 }

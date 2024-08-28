@@ -1,23 +1,22 @@
 package com.qinshift.transportCompany.mappers;
 
-import com.qinshift.transportCompany.dto.Company;
-import com.qinshift.transportCompany.entity.CompanyEntity;
+import com.qinshift.transportCompany.dto.CompanyDto;
+import com.qinshift.transportCompany.entity.Company;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 import java.util.List;
 
-
 @Mapper(componentModel = "spring", uses = DriverMapper.class)
 public interface CompanyMapper {
     @Mapping(target = "drivers", source = "drivers", ignore = true) // circular dependencies
 
-    Company map(CompanyEntity company);
+    CompanyDto map(Company company);
     @Mapping(target = "drivers", source = "drivers", ignore = true) // circular dependencies
 
-    CompanyEntity map(Company company);
+    Company map(CompanyDto company);
 
-    List<Company> mapToDto(List<CompanyEntity> companies);
-    List<CompanyEntity> mapToEntity(List<Company> companies);
+    List<CompanyDto> mapToDto(List<Company> companies);
+    List<Company> mapToEntity(List<CompanyDto> companies);
 
 }

@@ -1,6 +1,6 @@
 package com.qinshift.transportCompany.controller;
 
-import com.qinshift.transportCompany.dto.Driver;
+import com.qinshift.transportCompany.dto.DriverDto;
 import com.qinshift.transportCompany.service.DriverService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,7 @@ public class DriverController implements DriverApi{
     private final DriverService driverService;
 
     @Override
-    public ResponseEntity<String> createDriver(Driver body) {
+    public ResponseEntity<String> createDriver(DriverDto body) {
         if (driverService.createDriver(body).isPresent()) {
             return ResponseEntity.status(HttpStatus.CREATED).body("Successfully created");
         }
@@ -24,7 +24,7 @@ public class DriverController implements DriverApi{
     }
 
     @Override
-    public ResponseEntity<List<Driver>> getDrivers() {
+    public ResponseEntity<List<DriverDto>> getDrivers() {
         return ResponseEntity.ok(driverService.listAll());
     }
 }

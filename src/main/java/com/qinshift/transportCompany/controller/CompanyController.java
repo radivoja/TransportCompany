@@ -1,6 +1,6 @@
 package com.qinshift.transportCompany.controller;
 
-import com.qinshift.transportCompany.dto.Company;
+import com.qinshift.transportCompany.dto.CompanyDto;
 import com.qinshift.transportCompany.service.CompanyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,7 +15,7 @@ public class CompanyController implements CompanyApi {
     private final CompanyService companyService;
 
     @Override
-    public ResponseEntity<String> createCompany(Company body) {
+    public ResponseEntity<String> createCompany(CompanyDto body) {
         if (companyService.createCompany(body).isPresent()) {
             return ResponseEntity.status(HttpStatus.CREATED).body("Successfully created");
         }
@@ -33,17 +33,17 @@ public class CompanyController implements CompanyApi {
     }
 
     @Override
-    public ResponseEntity<List<Company>> getCompanies() {
+    public ResponseEntity<List<CompanyDto>> getCompanies() {
         return ResponseEntity.ok(companyService.listAll());
     }
 
     @Override
-    public ResponseEntity<Company> getCompanyById(Integer id) {
+    public ResponseEntity<CompanyDto> getCompanyById(Integer id) {
         return ResponseEntity.of(companyService.getCompanyById(id));
     }
 
     @Override
-    public ResponseEntity<Company> updateCompany(Integer idp, Company body) {
+    public ResponseEntity<CompanyDto> updateCompany(Integer idp, CompanyDto body) {
         return ResponseEntity.of(companyService.updateCompany(idp, body));
     }
 }

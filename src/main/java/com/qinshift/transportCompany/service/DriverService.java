@@ -1,6 +1,7 @@
 package com.qinshift.transportCompany.service;
 
-import com.qinshift.transportCompany.dto.Driver;
+
+import com.qinshift.transportCompany.dto.DriverDto;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,7 +9,7 @@ import java.util.Optional;
 
 public interface DriverService {
 
-    Optional<Driver> createDriver(Driver driver);
+    Optional<DriverDto> createDriver(DriverDto driver);
 
-    List<Driver> listAll();
+    List<DriverDto> listAll();
 }

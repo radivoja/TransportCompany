@@ -1,12 +1,10 @@
 package com.qinshift.transportCompany.repository;
 
-import com.qinshift.transportCompany.entity.TruckEntity;
+import com.qinshift.transportCompany.entity.Truck;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
-public interface TruckRepository extends JpaRepository<TruckEntity, Integer> {
-    List<TruckEntity> findTrucksByGoodsId(Integer id);
+public interface TruckRepository extends JpaRepository<Truck, Integer> {
+ //  List<TruckEntity> findTrucksByGoodsId(Integer id);
 }

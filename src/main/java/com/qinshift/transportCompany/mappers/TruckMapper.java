@@ -1,7 +1,7 @@
 package com.qinshift.transportCompany.mappers;
 
-import com.qinshift.transportCompany.dto.Truck;
-import com.qinshift.transportCompany.entity.TruckEntity;
+import com.qinshift.transportCompany.dto.TruckDto;
+import com.qinshift.transportCompany.entity.Truck;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -10,15 +10,13 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface TruckMapper {
-    @Mapping(target = "goods", source = "goods", ignore = true) // circular dependencies
-    Truck map(TruckEntity entity);
-    @Mapping(target = "goods", source = "goods", ignore = true) // circular dependencies
+    TruckDto map(Truck entity);
 
-    TruckEntity map(Truck dto);
+    Truck map(TruckDto dto);
 
-    @Mapping(target = "goods", source = "goods", ignore = true) // circular dependencies
-    List<Truck> mapToDto(List<TruckEntity> entities);
+    @Mapping(target = "shipments", source = "shipments", ignore = true) // circular dependencies
+    List<TruckDto> mapToDto(List<Truck> entities);
 
-    @Mapping(target = "goods", source = "goods", ignore = true) // circular dependencies
-    List<TruckEntity> mapToEntity(List<Truck> dtos);
+    @Mapping(target = "shipments", source = "shipments", ignore = true) // circular dependencies
+    List<Truck> mapToEntity(List<TruckDto> dtos);
 }
