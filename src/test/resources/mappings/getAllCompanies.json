@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/apiFirst/wiremockList"
+  },
+  "response": {
+    "status": 418,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "bodyFileName": "companies.json"
+  }
+}
