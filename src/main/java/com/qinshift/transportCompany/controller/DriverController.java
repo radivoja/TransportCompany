@@ -1,6 +1,7 @@
 package com.qinshift.transportCompany.controller;
 
 import com.qinshift.transportCompany.dto.DriverDto;
+import com.qinshift.transportCompany.service.DriverSearchService;
 import com.qinshift.transportCompany.service.DriverService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,7 @@ import java.util.List;
 public class DriverController implements DriverApi{
 
     private final DriverService driverService;
+    private final DriverSearchService driverSearchService;
 
     @Override
     public ResponseEntity<String> createDriver(DriverDto body) {
@@ -26,5 +28,10 @@ public class DriverController implements DriverApi{
     @Override
     public ResponseEntity<List<DriverDto>> getDrivers() {
         return ResponseEntity.ok(driverService.listAll());
+    }
+
+    @Override
+    public ResponseEntity<List<DriverDto>> searchByCriteriaApi(String name, Integer experience, Integer companyId) {
+        return ResponseEntity.ok(driverSearchService.searchDrivers(name, experience, companyId));
     }
 }

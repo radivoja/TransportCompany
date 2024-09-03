@@ -1,6 +1,7 @@
 package com.qinshift.transportCompany.controller;
 
 import com.qinshift.transportCompany.dto.CompanyDto;
+import com.qinshift.transportCompany.service.CompanySearchService;
 import com.qinshift.transportCompany.service.CompanyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import java.util.List;
 @RestController
 public class CompanyController implements CompanyApi {
     private final CompanyService companyService;
+    private final CompanySearchService companySearchService;
 
     @Override
     public ResponseEntity<String> createCompany(CompanyDto body) {
@@ -26,7 +28,7 @@ public class CompanyController implements CompanyApi {
     @Override
     public ResponseEntity<String> deleteCompanyById(Integer idd) {
         if(companyService.deleteCompany(idd).isPresent()){
-            return ResponseEntity.status(HttpStatus.CREATED).body("Successfully deleted");
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Successfully deleted");
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not Found with "+ idd);
         }
@@ -40,6 +42,11 @@ public class CompanyController implements CompanyApi {
     @Override
     public ResponseEntity<CompanyDto> getCompanyById(Integer id) {
         return ResponseEntity.of(companyService.getCompanyById(id));
+    }
+
+    @Override
+    public ResponseEntity<List<CompanyDto>> searchByCriteriaApi(String name, String location, Integer founded) {
+        return ResponseEntity.ok(companySearchService.searchCompanies(name, location, founded));
     }
 
     @Override

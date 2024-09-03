@@ -1,19 +1,31 @@
 package com.qinshift.transportCompany.controller;
 
+import com.qinshift.transportCompany.dto.FuelType;
 import com.qinshift.transportCompany.dto.TruckDto;
+import com.qinshift.transportCompany.service.TruckSearchService;
 import com.qinshift.transportCompany.service.TruckService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RequiredArgsConstructor
+
 @RestController
 public class TruckController implements TruckApi{
 
-    private final TruckService truckService;
+    @Autowired
+    private TruckService truckService;
+
+    @Autowired
+    @Qualifier("criteriaApi")
+    private TruckSearchService criteriaApi;
+
+    @Autowired
+    @Qualifier("queryDsl")
+    private TruckSearchService queryDsl;
     
     @Override
     public ResponseEntity<String> assignTruckToGoods(Integer truckId, Integer goodsId) {
@@ -57,6 +69,35 @@ public class TruckController implements TruckApi{
         return null;
 
     }
+
+    @Override
+    public ResponseEntity<List<TruckDto>> searchByCriteriaApi(Integer vehicleWeight, String model, String manufacturer, Integer yearManufactured, Integer horsePower, Integer torque, Double cargoCapacity, Boolean aerodynamics, FuelType fuelType) {
+        return ResponseEntity.ok(criteriaApi.searchTrucks(
+                vehicleWeight,
+                model,
+                manufacturer,
+                horsePower,
+                yearManufactured,
+                torque,
+                cargoCapacity,
+                aerodynamics,
+                fuelType));
+    }
+
+    @Override
+    public ResponseEntity<List<TruckDto>> searchByQueryDsl(Integer vehicleWeight, String model, String manufacturer, Integer yearManufactured, Integer horsePower, Integer torque, Double cargoCapacity, Boolean aerodynamics, FuelType fuelType) {
+        return ResponseEntity.ok(queryDsl.searchTrucks(
+                vehicleWeight,
+                model,
+                manufacturer,
+                horsePower,
+                yearManufactured,
+                torque,
+                cargoCapacity,
+                aerodynamics,
+                fuelType));
+    }
+
 
     @Override
     public ResponseEntity<TruckDto> updateTruck(Integer idt, TruckDto body) {
