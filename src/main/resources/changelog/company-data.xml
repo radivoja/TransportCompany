@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+
+    <changeSet id="1" author="radivoja">
+        <insert tableName="company">
+            <column name="id" value="1"/>
+            <column name="name" value="FedEx"/>
+            <column name="location" value="Memphis, TN"/>
+            <column name="founded" value="1971"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="2" author="radivoja">
+        <insert tableName="company">
+            <column name="id" value="2"/>
+            <column name="name" value="UPS (United Parcel Service)"/>
+            <column name="location" value="Atlanta, GA"/>
+            <column name="founded" value="1907"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="3" author="radivoja">
+        <insert tableName="company">
+            <column name="id" value="3"/>
+            <column name="name" value="DHL Express"/>
+            <column name="location" value="Plantation, FL"/>
+            <column name="founded" value="1969"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="4" author="radivoja">
+        <insert tableName="company">
+            <column name="id" value="4"/>
+            <column name="name" value="J.B. Hunt Transport Services"/>
+            <column name="location" value="Lowell, AR"/>
+            <column name="founded" value="1961"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="5" author="radivoja">
+        <insert tableName="company">
+            <column name="id" value="5"/>
+            <column name="name" value="C.H. Robinson"/>
+            <column name="location" value="Eden Prairie, MN"/>
+            <column name="founded" value="1905"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="6" author="radivoja">
+        <insert tableName="company">
+            <column name="id" value="6"/>
+            <column name="name" value="XPO Logistics"/>
+            <column name="location" value="Greenwich, CT"/>
+            <column name="founded" value="1989"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="7" author="radivoja">
+        <insert tableName="company">
+            <column name="id" value="7"/>
+            <column name="name" value="Schneider National"/>
+            <column name="location" value="Green Bay, WI"/>
+            <column name="founded" value="1935"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="8" author="radivoja">
+        <insert tableName="company">
+            <column name="id" value="8"/>
+            <column name="name" value="Swift Transportation"/>
+            <column name="location" value="Phoenix, AZ"/>
+            <column name="founded" value="1966"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="9" author="radivoja">
+        <insert tableName="company">
+            <column name="id" value="9"/>
+            <column name="name" value="Old Dominion Freight Line"/>
+            <column name="location" value="Thomasville, NC"/>
+            <column name="founded" value="1934"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="10" author="radivoja">
+        <insert tableName="company">
+            <column name="id" value="10"/>
+            <column name="name" value="Landstar System"/>
+            <column name="location" value="Jacksonville, FL"/>
+            <column name="founded" value="1968"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="11" author="radivoja">
+        <insert tableName="company">
+            <column name="id" value="11"/>
+            <column name="name" value="Ryder System, Inc."/>
+            <column name="location" value="Miami, FL"/>
+            <column name="founded" value="1933"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="12" author="radivoja">
+        <insert tableName="company">
+            <column name="id" value="12"/>
+            <column name="name" value="Penske Logistics"/>
+            <column name="location" value="Reading, PA"/>
+            <column name="founded" value="1969"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="13" author="radivoja">
+        <insert tableName="company">
+            <column name="id" value="13"/>
+            <column name="name" value="YRC Freight"/>
+            <column name="location" value="Overland Park, KS"/>
+            <column name="founded" value="1924"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="14" author="radivoja">
+        <insert tableName="company">
+            <column name="id" value="14"/>
+            <column name="name" value="Saia LTL Freight"/>
+            <column name="location" value="Johns Creek, GA"/>
+            <column name="founded" value="1924"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="15" author="radivoja">
+        <insert tableName="company">
+            <column name="id" value="15"/>
+            <column name="name" value="ABF Freight"/>
+            <column name="location" value="Fort Smith, AR"/>
+            <column name="founded" value="1923"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="16" author="radivoja">
+        <insert tableName="company">
+            <column name="id" value="16"/>
+            <column name="name" value="Estes Express Lines"/>
+            <column name="location" value="Richmond, VA"/>
+            <column name="founded" value="1931"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="17" author="radivoja">
+        <insert tableName="company">
+            <column name="id" value="17"/>
+            <column name="name" value="Forward Air"/>
+            <column name="location" value="Greeneville, TN"/>
+            <column name="founded" value="1990"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="18" author="radivoja">
+        <insert tableName="company">
+            <column name="id" value="18"/>
+            <column name="name" value="TForce Freight"/>
+            <column name="location" value="Dallas, TX"/>
+            <column name="founded" value="1998"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="19" author="radivoja">
+        <insert tableName="company">
+            <column name="id" value="19"/>
+            <column name="name" value="Celadon Trucking Services"/>
+            <column name="location" value="Indianapolis, IN"/>
+            <column name="founded" value="1985"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="20" author="radivoja">
+        <insert tableName="company">
+            <column name="id" value="20"/>
+            <column name="name" value="KLLM Transport Services"/>
+            <column name="location" value="Jackson, MS"/>
+            <column name="founded" value="1963"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

@@ -158,4 +158,49 @@
                                  referencedTableName="goods" referencedColumnNames="id"/>
     </changeSet>	
 	
+	<changeSet id="12" author="radivoja">
+        <modifyDataType tableName="truck" columnName="vehicleWeight" newDataType="double precision"/>
+	</changeSet>
+
+    <changeSet id="13" author="radivoja">
+        <addColumn tableName="company">
+            <column name="founded" type="integer"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="14" author="radivoja">
+        <renameColumn tableName="goods" oldColumnName="category" newColumnName="quantity"/>
+    </changeSet>
+
+    <changeSet id="15" author="radivoja">
+        <modifyDataType tableName="goods" columnName="quantity" newDataType="integer"/>
+    </changeSet>
+	
+    <changeSet id="16" author="radivoja">
+        <renameColumn tableName="truck" oldColumnName="vehicleWeight" newColumnName="vehicle_weight"/>
+    </changeSet>
+	
+	<changeSet id="17" author="radivoja">
+        <renameColumn tableName="truck" oldColumnName="yearManufactured" newColumnName="year_manufactured"/>
+    </changeSet>
+	
+	<changeSet id="18" author="radivoja">
+        <renameColumn tableName="truck" oldColumnName="horsePower" newColumnName="horse_power"/>
+    </changeSet>
+	
+	<changeSet id="19" author="radivoja">
+        <renameColumn tableName="truck" oldColumnName="cargoCapacity" newColumnName="cargo_capacity"/>
+    </changeSet>
+	
+    <changeSet id="20" author="radivoja">
+        <renameColumn tableName="truck" oldColumnName="fuelType" newColumnName="fuel_type"/>
+    </changeSet>
+	
+    <changeSet id="21" author="radivoja">
+        <renameColumn tableName="shipment" oldColumnName="dateLoaded" newColumnName="date_loaded"/>
+    </changeSet>
+	
+	<changeSet id="22" author="radivoja">
+	    <dropUniqueConstraint constraintName="shipment_truck_id_key" tableName="shipment"/>
+	</changeSet>
 </databaseChangeLog>

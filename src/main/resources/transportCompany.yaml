@@ -118,7 +118,40 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CompanyDto'
-
+  /apiFirst/companies/search/critApi:
+    parameters:
+      - name: name
+        description: name
+        schema:
+          type: string
+        in: query
+        required: false
+      - name: location
+        description: location
+        schema:
+          type: string
+        in: query
+        required: false        
+      - name: founded
+        description: founded
+        schema:
+          type: integer
+        in: query
+        required: false 
+    get:
+      summary: search
+      tags:
+        - "Company"
+      operationId: searchByCriteriaApi 
+      responses:
+        "200":
+          description: created
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompanyDto'
   /apiFirst/drivers:
     get:
       summary:  Company Api
@@ -157,7 +190,41 @@ paths:
             application/json:
               schema:
                 type: string
-
+                
+  /apiFirst/drivers/search/critApi:
+    parameters:
+      - name: name
+        description: name
+        schema:
+          type: string
+        in: query
+        required: false
+      - name: experience
+        description: experience
+        schema:
+          type: integer
+        in: query
+        required: false 
+      - name: companyId
+        description: companyId
+        schema:
+          type: integer
+        in: query
+        required: false        
+    get:
+      summary: search
+      tags:
+        - "Driver"
+      operationId: searchByCriteriaApi 
+      responses:
+        "200":
+          description: created
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DriverDto'
   /apiFirst/goods:
     get:
       summary: Goods summary
@@ -168,6 +235,34 @@ paths:
       responses:
         "200":
           description: Goods List
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GoodsDto'
+  /apiFirst/goods/search/critApi:
+    parameters:
+      - name: name
+        description: name
+        schema:
+          type: string
+        in: query
+        required: false
+      - name: quantity
+        description: quantity
+        schema:
+          type: integer
+        in: query
+        required: false        
+    get:
+      summary: search
+      tags:
+        - "Goods"
+      operationId: searchByCriteriaApi 
+      responses:
+        "200":
+          description: created
           content:
             application/json:
               schema:
@@ -335,7 +430,186 @@ paths:
             application/json:
               schema:
                 type: string
+                
+  /apiFirst/trucks/search/critApi:
+    parameters:
+      - name: vehicleWeight
+        description: vehicleWeight
+        schema:
+          type: integer
+        in: query
+        required: false
+      - name: model
+        description: model
+        schema:
+          type: string
+        in: query
+        required: false       
+      - name: manufacturer
+        description: manufacturer
+        schema:
+          type: string
+        in: query
+        required: false   
+      - name: yearManufactured
+        description: yearManufactured
+        schema:
+          type: integer
+        in: query
+        required: false   
+      - name: horsePower
+        description: horsePower
+        schema:
+          type: integer
+        in: query
+        required: false   
+      - name: torque
+        description: torque
+        schema:
+          type: integer
+        in: query
+        required: false   
+      - name: cargoCapacity
+        description: cargo Capacity
+        schema:
+          type: number
+          format: double
+        in: query
+        required: false   
+      - name: aerodynamics
+        description: aerodynamics
+        schema:
+          type: boolean
+        in: query
+        required: false   
+      - name: fuelType
+        description: fuelType
+        schema:
+          $ref: '#/components/schemas/FuelType'
+        in: query
+        required: false
+    get:
+      summary: search
+      tags:
+        - "Truck"
+      operationId: searchByCriteriaApi 
+      responses:
+        "200":
+          description: created
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TruckDto'
 
+  /apiFirst/trucks/search/queryDsl:
+    parameters:
+      - name: vehicleWeight
+        description: vehicleWeight
+        schema:
+          type: integer
+        in: query
+        required: false
+      - name: model
+        description: model
+        schema:
+          type: string
+        in: query
+        required: false       
+      - name: manufacturer
+        description: manufacturer
+        schema:
+          type: string
+        in: query
+        required: false   
+      - name: yearManufactured
+        description: yearManufactured
+        schema:
+          type: integer
+        in: query
+        required: false   
+      - name: horsePower
+        description: horsePower
+        schema:
+          type: integer
+        in: query
+        required: false   
+      - name: torque
+        description: torque
+        schema:
+          type: integer
+        in: query
+        required: false   
+      - name: cargoCapacity
+        description: cargo Capacity
+        schema:
+          type: number
+          format: double
+        in: query
+        required: false   
+      - name: aerodynamics
+        description: aerodynamics
+        schema:
+          type: boolean
+        in: query
+        required: false   
+      - name: fuelType
+        description: fuelType
+        schema:
+          $ref: '#/components/schemas/FuelType'
+        in: query
+        required: false
+    get:
+      summary: search
+      tags:
+        - "Truck"
+      operationId: searchByQueryDsl  
+      responses:
+        "200":
+          description: created
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TruckDto'
+                  
+  /apiFirst/shipments/search/critApi:
+    parameters:
+      - name: destination
+        description: destination
+        schema:
+          type: string
+        in: query
+        required: false        
+      - name: distance
+        description: distance
+        schema:
+          type: number
+          format: double
+        in: query
+        required: false
+      - name: truckId
+        description: truck id
+        schema:
+          type: integer
+        in: query
+        required: false          
+    get:
+      summary: search
+      tags:
+        - "Shipment"
+      operationId: searchByCriteriaApi 
+      responses:
+        "200":
+          description: created
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ShipmentDto'
 components:
   schemas:
     CompanyDto:
@@ -351,6 +625,9 @@ components:
         location:
           description: location
           type: string
+        founded:
+          description: year founded
+          type: integer          
         drivers:
           type: array
           items:
@@ -391,7 +668,7 @@ components:
           type: string
         manufacturer:
           description: name of the manufacturer
-          type: integer
+          type: string
         yearManufactured:
           description: year of manufacture
           type: integer
@@ -438,9 +715,9 @@ components:
         name:
           description: name
           type: string
-        category:
-          description: category
-          type: string
+        quantity:
+          description: quantity of the goods
+          type: integer
         shipments:
           type: array
           items:
@@ -455,7 +732,7 @@ components:
           type: integer
         dateLoaded:
           description: dateLoaded
-          type: string
+          type: string        
         destination:
           description: destination
           type: string

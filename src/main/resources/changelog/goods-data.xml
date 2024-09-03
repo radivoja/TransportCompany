@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="1" author="radivoja">
+        <insert tableName="goods">
+            <column name="id" value="1"/>
+            <column name="name" value="Electronics"/>
+            <column name="quantity" value="5000"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="2" author="radivoja">
+        <insert tableName="goods">
+            <column name="id" value="2"/>
+            <column name="name" value="Parcels"/>
+            <column name="quantity" value="7000"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="3" author="radivoja">
+        <insert tableName="goods">
+            <column name="id" value="3"/>
+            <column name="name" value="Packages"/>
+            <column name="quantity" value="3000"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="4" author="radivoja">
+        <insert tableName="goods">
+            <column name="id" value="4"/>
+            <column name="name" value="Freight"/>
+            <column name="quantity" value="6000"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="5" author="radivoja">
+        <insert tableName="goods">
+            <column name="id" value="5"/>
+            <column name="name" value="Food Products"/>
+            <column name="quantity" value="4500"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="6" author="radivoja">
+        <insert tableName="goods">
+            <column name="id" value="6"/>
+            <column name="name" value="Retail Goods"/>
+            <column name="quantity" value="5500"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="7" author="radivoja">
+        <insert tableName="goods">
+            <column name="id" value="7"/>
+            <column name="name" value="Industrial Supplies"/>
+            <column name="quantity" value="4000"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="8" author="radivoja">
+        <insert tableName="goods">
+            <column name="id" value="8"/>
+            <column name="name" value="Construction Materials"/>
+            <column name="quantity" value="3500"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="9" author="radivoja">
+        <insert tableName="goods">
+            <column name="id" value="9"/>
+            <column name="name" value="Furniture"/>
+            <column name="quantity" value="5000"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="10" author="radivoja">
+        <insert tableName="goods">
+            <column name="id" value="10"/>
+            <column name="name" value="Automotive Parts"/>
+            <column name="quantity" value="6200"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="11" author="radivoja">
+        <insert tableName="goods">
+            <column name="id" value="11"/>
+            <column name="name" value="Medical Supplies"/>
+            <column name="quantity" value="3300"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="12" author="radivoja">
+        <insert tableName="goods">
+            <column name="id" value="12"/>
+            <column name="name" value="Household Goods"/>
+            <column name="quantity" value="4600"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="13" author="radivoja">
+        <insert tableName="goods">
+            <column name="id" value="13"/>
+            <column name="name" value="Agricultural Products"/>
+            <column name="quantity" value="3700"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="14" author="radivoja">
+        <insert tableName="goods">
+            <column name="id" value="14"/>
+            <column name="name" value="Paper Products"/>
+            <column name="quantity" value="2800"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="15" author="radivoja">
+        <insert tableName="goods">
+            <column name="id" value="15"/>
+            <column name="name" value="Chemicals"/>
+            <column name="quantity" value="5200"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="16" author="radivoja">
+        <insert tableName="goods">
+            <column name="id" value="16"/>
+            <column name="name" value="Textiles"/>
+            <column name="quantity" value="3400"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="17" author="radivoja">
+        <insert tableName="goods">
+            <column name="id" value="17"/>
+            <column name="name" value="Pharmaceuticals"/>
+            <column name="quantity" value="6200"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="18" author="radivoja">
+        <insert tableName="goods">
+            <column name="id" value="18"/>
+            <column name="name" value="Beverages"/>
+            <column name="quantity" value="4800"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="19" author="radivoja">
+        <insert tableName="goods">
+            <column name="id" value="19"/>
+            <column name="name" value="Office Supplies"/>
+            <column name="quantity" value="5900"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="20" author="radivoja">
+        <insert tableName="goods">
+            <column name="id" value="20"/>
+            <column name="name" value="Personal Care Products"/>
+            <column name="quantity" value="5000"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

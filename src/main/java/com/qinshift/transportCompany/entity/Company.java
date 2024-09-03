@@ -15,6 +15,7 @@ public class Company {
     private Integer id;
     private String name;
     private String location;
+    private Integer founded;
 
     @ToString.Exclude
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "company")

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1" author="radivoja">
+        <insert tableName="shipment">
+            <column name="id" value="1"/>
+            <column name="date_loaded" valueDate="2024-09-03"/>
+            <column name="destination" value="New York, NY"/>
+            <column name="distance" value="2150"/>
+            <column name="truck_id" value="11"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="2" author="radivoja">
+        <insert tableName="shipment">
+            <column name="id" value="2"/>
+            <column name="date_loaded" valueDate="2024-09-03"/>
+            <column name="destination" value="Los Angeles, CA"/>
+            <column name="distance" value="3450"/>
+            <column name="truck_id" value="25"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="3" author="radivoja">
+        <insert tableName="shipment">
+            <column name="id" value="3"/>
+            <column name="date_loaded" valueDate="2024-09-03"/>
+            <column name="destination" value="Chicago, IL"/>
+            <column name="distance" value="2840"/>
+            <column name="truck_id" value="3"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="4" author="radivoja">
+        <insert tableName="shipment">
+            <column name="id" value="4"/>
+            <column name="date_loaded" valueDate="2024-09-03"/>
+            <column name="destination" value="Houston, TX"/>
+            <column name="distance" value="2650"/>
+            <column name="truck_id" value="4"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="5" author="radivoja">
+        <insert tableName="shipment">
+            <column name="id" value="5"/>
+            <column name="date_loaded" valueDate="2024-09-03"/>
+            <column name="destination" value="Phoenix, AZ"/>
+            <column name="distance" value="3100"/>
+            <column name="truck_id" value="4"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="6" author="radivoja">
+        <insert tableName="shipment">
+            <column name="id" value="6"/>
+            <column name="date_loaded" valueDate="2024-09-03"/>
+            <column name="destination" value="Philadelphia, PA"/>
+            <column name="distance" value="2230"/>
+            <column name="truck_id" value="6"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="7" author="radivoja">
+        <insert tableName="shipment">
+            <column name="id" value="7"/>
+            <column name="date_loaded" valueDate="2024-09-03"/>
+            <column name="destination" value="San Antonio, TX"/>
+            <column name="distance" value="2560"/>
+            <column name="truck_id" value="37"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="8" author="radivoja">
+        <insert tableName="shipment">
+            <column name="id" value="8"/>
+            <column name="date_loaded" valueDate="2024-09-03"/>
+            <column name="destination" value="San Diego, CA"/>
+            <column name="distance" value="3200"/>
+            <column name="truck_id" value="8"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="9" author="radivoja">
+        <insert tableName="shipment">
+            <column name="id" value="9"/>
+            <column name="date_loaded" valueDate="2024-09-03"/>
+            <column name="destination" value="Dallas, TX"/>
+            <column name="distance" value="2600"/>
+            <column name="truck_id" value="9"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="10" author="radivoja">
+        <insert tableName="shipment">
+            <column name="id" value="10"/>
+            <column name="date_loaded" valueDate="2024-09-03"/>
+            <column name="destination" value="San Jose, CA"/>
+            <column name="distance" value="3400"/>
+            <column name="truck_id" value="10"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="11" author="radivoja">
+        <insert tableName="shipment">
+            <column name="id" value="11"/>
+            <column name="date_loaded" valueDate="2024-09-03"/>
+            <column name="destination" value="Austin, TX"/>
+            <column name="distance" value="2450"/>
+            <column name="truck_id" value="1"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="12" author="radivoja">
+        <insert tableName="shipment">
+            <column name="id" value="12"/>
+            <column name="date_loaded" valueDate="2024-09-03"/>
+            <column name="destination" value="Jacksonville, FL"/>
+            <column name="distance" value="2050"/>
+            <column name="truck_id" value="21"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="13" author="radivoja">
+        <insert tableName="shipment">
+            <column name="id" value="13"/>
+            <column name="date_loaded" valueDate="2024-09-03"/>
+            <column name="destination" value="Fort Worth, TX"/>
+            <column name="distance" value="2700"/>
+            <column name="truck_id" value="4"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="14" author="radivoja">
+        <insert tableName="shipment">
+            <column name="id" value="14"/>
+            <column name="date_loaded" valueDate="2024-09-03"/>
+            <column name="destination" value="Columbus, OH"/>
+            <column name="distance" value="2330"/>
+            <column name="truck_id" value="4"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="15" author="radivoja">
+        <insert tableName="shipment">
+            <column name="id" value="15"/>
+            <column name="date_loaded" valueDate="2024-09-03"/>
+            <column name="destination" value="Indianapolis, IN"/>
+            <column name="distance" value="2100"/>
+            <column name="truck_id" value="5"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="16" author="radivoja">
+        <insert tableName="shipment">
+            <column name="id" value="16"/>
+            <column name="date_loaded" valueDate="2024-09-03"/>
+            <column name="destination" value="Charlotte, NC"/>
+            <column name="distance" value="2200"/>
+            <column name="truck_id" value="16"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="17" author="radivoja">
+        <insert tableName="shipment">
+            <column name="id" value="17"/>
+            <column name="date_loaded" valueDate="2024-09-03"/>
+            <column name="destination" value="San Francisco, CA"/>
+            <column name="distance" value="3400"/>
+            <column name="truck_id" value="27"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="18" author="radivoja">
+        <insert tableName="shipment">
+            <column name="id" value="18"/>
+            <column name="date_loaded" valueDate="2024-09-03"/>
+            <column name="destination" value="Seattle, WA"/>
+            <column name="distance" value="4000"/>
+            <column name="truck_id" value="10"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="19" author="radivoja">
+        <insert tableName="shipment">
+            <column name="id" value="19"/>
+            <column name="date_loaded" valueDate="2024-09-03"/>
+            <column name="destination" value="Denver, CO"/>
+            <column name="distance" value="2700"/>
+            <column name="truck_id" value="9"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="20" author="radivoja">
+        <insert tableName="shipment">
+            <column name="id" value="20"/>
+            <column name="date_loaded" valueDate="2024-09-03"/>
+            <column name="destination" value="Boston, MA"/>
+            <column name="distance" value="2300"/>
+            <column name="truck_id" value="1"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

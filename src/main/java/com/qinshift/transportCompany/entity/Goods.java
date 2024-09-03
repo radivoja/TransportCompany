@@ -15,7 +15,7 @@ public class Goods {
     @Id
     private Integer id;
     private String name;
-    private String category;
+    private Integer quantity;
 
     @ToString.Exclude
     @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })

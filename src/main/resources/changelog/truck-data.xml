@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <!-- Diesel Trucks -->
+    <changeSet id="1" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="1"/>
+            <column name="vehicle_weight" value="7.0"/>
+            <column name="model" value="Freightliner Cascadia"/>
+            <column name="manufacturer" value="Freightliner"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="505"/>
+            <column name="torque" value="1850"/>
+            <column name="cargo_capacity" value="20.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="DIESEL"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="2" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="2"/>
+            <column name="vehicle_weight" value="8.5"/>
+            <column name="model" value="Kenworth T680"/>
+            <column name="manufacturer" value="Kenworth"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="565"/>
+            <column name="torque" value="2050"/>
+            <column name="cargo_capacity" value="22.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="DIESEL"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="3" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="3"/>
+            <column name="vehicle_weight" value="9.0"/>
+            <column name="model" value="Volvo VNL 760"/>
+            <column name="manufacturer" value="Volvo"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="600"/>
+            <column name="torque" value="2200"/>
+            <column name="cargo_capacity" value="23.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="DIESEL"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="4" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="4"/>
+            <column name="vehicle_weight" value="7.5"/>
+            <column name="model" value="Peterbilt 579"/>
+            <column name="manufacturer" value="Peterbilt"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="565"/>
+            <column name="torque" value="2000"/>
+            <column name="cargo_capacity" value="21.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="DIESEL"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="5" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="5"/>
+            <column name="vehicle_weight" value="8.0"/>
+            <column name="model" value="International LT"/>
+            <column name="manufacturer" value="International"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="470"/>
+            <column name="torque" value="1700"/>
+            <column name="cargo_capacity" value="19.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="DIESEL"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="6" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="6"/>
+            <column name="vehicle_weight" value="7.8"/>
+            <column name="model" value="Mack Anthem"/>
+            <column name="manufacturer" value="Mack"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="565"/>
+            <column name="torque" value="1800"/>
+            <column name="cargo_capacity" value="20.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="DIESEL"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="7" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="7"/>
+            <column name="vehicle_weight" value="8.2"/>
+            <column name="model" value="Western Star 5700XE"/>
+            <column name="manufacturer" value="Western Star"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="550"/>
+            <column name="torque" value="2000"/>
+            <column name="cargo_capacity" value="21.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="DIESEL"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="8" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="8"/>
+            <column name="vehicle_weight" value="9.3"/>
+            <column name="model" value="Kenworth W990"/>
+            <column name="manufacturer" value="Kenworth"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="600"/>
+            <column name="torque" value="2200"/>
+            <column name="cargo_capacity" value="22.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="DIESEL"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="9" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="9"/>
+            <column name="vehicle_weight" value="8.9"/>
+            <column name="model" value="Volvo VNX"/>
+            <column name="manufacturer" value="Volvo"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="600"/>
+            <column name="torque" value="2200"/>
+            <column name="cargo_capacity" value="24.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="DIESEL"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="10" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="10"/>
+            <column name="vehicle_weight" value="7.6"/>
+            <column name="model" value="International HV"/>
+            <column name="manufacturer" value="International"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="470"/>
+            <column name="torque" value="1700"/>
+            <column name="cargo_capacity" value="18.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="DIESEL"/>
+        </insert>
+    </changeSet>
+
+    <!-- Gasoline Trucks -->
+    <changeSet id="11" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="11"/>
+            <column name="vehicle_weight" value="5.0"/>
+            <column name="model" value="Ford F-150"/>
+            <column name="manufacturer" value="Ford"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="400"/>
+            <column name="torque" value="500"/>
+            <column name="cargo_capacity" value="2.5"/>
+            <column name="aerodynamics" value="false"/>
+            <column name="fuel_type" value="GASOLINE"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="12" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="12"/>
+            <column name="vehicle_weight" value="6.0"/>
+            <column name="model" value="Chevrolet Silverado"/>
+            <column name="manufacturer" value="Chevrolet"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="420"/>
+            <column name="torque" value="550"/>
+            <column name="cargo_capacity" value="3.0"/>
+            <column name="aerodynamics" value="false"/>
+            <column name="fuel_type" value="GASOLINE"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="13" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="13"/>
+            <column name="vehicle_weight" value="6.5"/>
+            <column name="model" value="Ram 1500"/>
+            <column name="manufacturer" value="Ram"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="395"/>
+            <column name="torque" value="410"/>
+            <column name="cargo_capacity" value="2.8"/>
+            <column name="aerodynamics" value="false"/>
+            <column name="fuel_type" value="GASOLINE"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="14" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="14"/>
+            <column name="vehicle_weight" value="7.0"/>
+            <column name="model" value="Toyota Tundra"/>
+            <column name="manufacturer" value="Toyota"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="381"/>
+            <column name="torque" value="401"/>
+            <column name="cargo_capacity" value="2.7"/>
+            <column name="aerodynamics" value="false"/>
+            <column name="fuel_type" value="GASOLINE"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="15" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="15"/>
+            <column name="vehicle_weight" value="6.8"/>
+            <column name="model" value="Nissan Titan"/>
+            <column name="manufacturer" value="Nissan"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="400"/>
+            <column name="torque" value="413"/>
+            <column name="cargo_capacity" value="2.6"/>
+            <column name="aerodynamics" value="false"/>
+            <column name="fuel_type" value="GASOLINE"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="16" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="16"/>
+            <column name="vehicle_weight" value="6.2"/>
+            <column name="model" value="Honda Ridgeline"/>
+            <column name="manufacturer" value="Honda"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="280"/>
+            <column name="torque" value="266"/>
+            <column name="cargo_capacity" value="2.0"/>
+            <column name="aerodynamics" value="false"/>
+            <column name="fuel_type" value="GASOLINE"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="17" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="17"/>
+            <column name="vehicle_weight" value="7.1"/>
+            <column name="model" value="GMC Sierra"/>
+            <column name="manufacturer" value="GMC"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="355"/>
+            <column name="torque" value="383"/>
+            <column name="cargo_capacity" value="2.9"/>
+            <column name="aerodynamics" value="false"/>
+            <column name="fuel_type" value="GASOLINE"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="18" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="18"/>
+            <column name="vehicle_weight" value="6.7"/>
+            <column name="model" value="Ford Ranger"/>
+            <column name="manufacturer" value="Ford"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="270"/>
+            <column name="torque" value="310"/>
+            <column name="cargo_capacity" value="2.5"/>
+            <column name="aerodynamics" value="false"/>
+            <column name="fuel_type" value="GASOLINE"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="19" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="19"/>
+            <column name="vehicle_weight" value="7.4"/>
+            <column name="model" value="Chevrolet Colorado"/>
+            <column name="manufacturer" value="Chevrolet"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="275"/>
+            <column name="torque" value="269"/>
+            <column name="cargo_capacity" value="2.4"/>
+            <column name="aerodynamics" value="false"/>
+            <column name="fuel_type" value="GASOLINE"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="20" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="20"/>
+            <column name="vehicle_weight" value="6.9"/>
+            <column name="model" value="Ram 2500"/>
+            <column name="manufacturer" value="Ram"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="410"/>
+            <column name="torque" value="429"/>
+            <column name="cargo_capacity" value="2.6"/>
+            <column name="aerodynamics" value="false"/>
+            <column name="fuel_type" value="GASOLINE"/>
+        </insert>
+    </changeSet>
+
+    <!-- Electric Power Trucks -->
+    <changeSet id="21" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="21"/>
+            <column name="vehicle_weight" value="5.5"/>
+            <column name="model" value="Tesla Semi"/>
+            <column name="manufacturer" value="Tesla"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="800"/>
+            <column name="torque" value="2000"/>
+            <column name="cargo_capacity" value="22.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="ELECTRIC_POWER"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="22" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="22"/>
+            <column name="vehicle_weight" value="6.0"/>
+            <column name="model" value="Rivian R1T"/>
+            <column name="manufacturer" value="Rivian"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="750"/>
+            <column name="torque" value="1300"/>
+            <column name="cargo_capacity" value="14.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="ELECTRIC_POWER"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="23" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="23"/>
+            <column name="vehicle_weight" value="6.5"/>
+            <column name="model" value="Nikola Tre"/>
+            <column name="manufacturer" value="Nikola"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="500"/>
+            <column name="torque" value="1200"/>
+            <column name="cargo_capacity" value="16.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="ELECTRIC_POWER"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="24" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="24"/>
+            <column name="vehicle_weight" value="5.8"/>
+            <column name="model" value="BYD T8"/>
+            <column name="manufacturer" value="BYD"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="500"/>
+            <column name="torque" value="1600"/>
+            <column name="cargo_capacity" value="18.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="ELECTRIC_POWER"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="25" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="25"/>
+            <column name="vehicle_weight" value="6.3"/>
+            <column name="model" value="Lordstown Endurance"/>
+            <column name="manufacturer" value="Lordstown"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="600"/>
+            <column name="torque" value="2200"/>
+            <column name="cargo_capacity" value="20.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="ELECTRIC_POWER"/>
+        </insert>
+    </changeSet>
+
+    <!-- Liquid Petroleum Gas Trucks -->
+    <changeSet id="26" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="26"/>
+            <column name="vehicle_weight" value="9.0"/>
+            <column name="model" value="Volvo FM 400"/>
+            <column name="manufacturer" value="Volvo"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="400"/>
+            <column name="torque" value="1600"/>
+            <column name="cargo_capacity" value="25.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="LIQUID_PETROLEUM_GAS"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="27" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="27"/>
+            <column name="vehicle_weight" value="8.5"/>
+            <column name="model" value="Scania R 450"/>
+            <column name="manufacturer" value="Scania"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="450"/>
+            <column name="torque" value="1800"/>
+            <column name="cargo_capacity" value="24.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="LIQUID_PETROLEUM_GAS"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="28" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="28"/>
+            <column name="vehicle_weight" value="8.0"/>
+            <column name="model" value="Kenworth T880"/>
+            <column name="manufacturer" value="Kenworth"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="500"/>
+            <column name="torque" value="2000"/>
+            <column name="cargo_capacity" value="22.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="LIQUID_PETROLEUM_GAS"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="29" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="29"/>
+            <column name="vehicle_weight" value="7.8"/>
+            <column name="model" value="Freightliner M2"/>
+            <column name="manufacturer" value="Freightliner"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="450"/>
+            <column name="torque" value="1700"/>
+            <column name="cargo_capacity" value="20.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="LIQUID_PETROLEUM_GAS"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="30" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="30"/>
+            <column name="vehicle_weight" value="9.2"/>
+            <column name="model" value="International HV"/>
+            <column name="manufacturer" value="International"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="500"/>
+            <column name="torque" value="2000"/>
+            <column name="cargo_capacity" value="25.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="LIQUID_PETROLEUM_GAS"/>
+        </insert>
+    </changeSet>
+
+    <!-- Ethanol Trucks -->
+    <changeSet id="31" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="31"/>
+            <column name="vehicle_weight" value="8.0"/>
+            <column name="model" value="Scania P 320"/>
+            <column name="manufacturer" value="Scania"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="320"/>
+            <column name="torque" value="1400"/>
+            <column name="cargo_capacity" value="22.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="ETHANOL"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="32" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="32"/>
+            <column name="vehicle_weight" value="7.5"/>
+            <column name="model" value="Volvo FE"/>
+            <column name="manufacturer" value="Volvo"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="300"/>
+            <column name="torque" value="1200"/>
+            <column name="cargo_capacity" value="20.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="ETHANOL"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="33" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="33"/>
+            <column name="vehicle_weight" value="7.8"/>
+            <column name="model" value="Kenworth K370"/>
+            <column name="manufacturer" value="Kenworth"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="280"/>
+            <column name="torque" value="1000"/>
+            <column name="cargo_capacity" value="18.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="ETHANOL"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="34" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="34"/>
+            <column name="vehicle_weight" value="8.2"/>
+            <column name="model" value="International DuraStar"/>
+            <column name="manufacturer" value="International"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="350"/>
+            <column name="torque" value="1300"/>
+            <column name="cargo_capacity" value="21.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="ETHANOL"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="35" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="35"/>
+            <column name="vehicle_weight" value="7.6"/>
+            <column name="model" value="Mack Granite"/>
+            <column name="manufacturer" value="Mack"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="350"/>
+            <column name="torque" value="1200"/>
+            <column name="cargo_capacity" value="19.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="ETHANOL"/>
+        </insert>
+    </changeSet>
+
+    <!-- Bio-Diesel Trucks -->
+    <changeSet id="36" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="36"/>
+            <column name="vehicle_weight" value="9.0"/>
+            <column name="model" value="Scania R 450"/>
+            <column name="manufacturer" value="Scania"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="450"/>
+            <column name="torque" value="1800"/>
+            <column name="cargo_capacity" value="24.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="BIO_DIESEL"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="37" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="37"/>
+            <column name="vehicle_weight" value="8.5"/>
+            <column name="model" value="Volvo FM 420"/>
+            <column name="manufacturer" value="Volvo"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="420"/>
+            <column name="torque" value="1600"/>
+            <column name="cargo_capacity" value="23.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="BIO_DIESEL"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="38" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="38"/>
+            <column name="vehicle_weight" value="8.0"/>
+            <column name="model" value="Kenworth T680"/>
+            <column name="manufacturer" value="Kenworth"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="500"/>
+            <column name="torque" value="2000"/>
+            <column name="cargo_capacity" value="22.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="BIO_DIESEL"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="39" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="39"/>
+            <column name="vehicle_weight" value="8.2"/>
+            <column name="model" value="International LT"/>
+            <column name="manufacturer" value="International"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="400"/>
+            <column name="torque" value="1700"/>
+            <column name="cargo_capacity" value="20.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="BIO_DIESEL"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="40" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="40"/>
+            <column name="vehicle_weight" value="7.8"/>
+            <column name="model" value="Mack Anthem"/>
+            <column name="manufacturer" value="Mack"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="350"/>
+            <column name="torque" value="1600"/>
+            <column name="cargo_capacity" value="21.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="BIO_DIESEL"/>
+        </insert>
+    </changeSet>
+
+    <!-- Compressed Natural Gas Trucks -->
+    <changeSet id="41" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="41"/>
+            <column name="vehicle_weight" value="8.5"/>
+            <column name="model" value="Freightliner 114SD CNG"/>
+            <column name="manufacturer" value="Freightliner"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="300"/>
+            <column name="torque" value="660"/>
+            <column name="cargo_capacity" value="15.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="COMPRESSED_NATURAL_GAS"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="42" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="42"/>
+            <column name="vehicle_weight" value="7.0"/>
+            <column name="model" value="Kenworth T440 CNG"/>
+            <column name="manufacturer" value="Kenworth"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="330"/>
+            <column name="torque" value="700"/>
+            <column name="cargo_capacity" value="12.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="COMPRESSED_NATURAL_GAS"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="43" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="43"/>
+            <column name="vehicle_weight" value="6.5"/>
+            <column name="model" value="Peterbilt 320 CNG"/>
+            <column name="manufacturer" value="Peterbilt"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="320"/>
+            <column name="torque" value="600"/>
+            <column name="cargo_capacity" value="10.0"/>
+            <column name="aerodynamics" value="false"/>
+            <column name="fuel_type" value="COMPRESSED_NATURAL_GAS"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="44" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="44"/>
+            <column name="vehicle_weight" value="8.0"/>
+            <column name="model" value="Volvo VNL 300 CNG"/>
+            <column name="manufacturer" value="Volvo"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="350"/>
+            <column name="torque" value="800"/>
+            <column name="cargo_capacity" value="14.0"/>
+            <column name="aerodynamics" value="true"/>
+            <column name="fuel_type" value="COMPRESSED_NATURAL_GAS"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="45" author="radivoja">
+        <insert tableName="truck">
+            <column name="id" value="45"/>
+            <column name="vehicle_weight" value="6.0"/>
+            <column name="model" value="Isuzu FTR CNG"/>
+            <column name="manufacturer" value="Isuzu"/>
+            <column name="year_manufactured" value="2023"/>
+            <column name="horse_power" value="260"/>
+            <column name="torque" value="500"/>
+            <column name="cargo_capacity" value="8.0"/>
+            <column name="aerodynamics" value="false"/>
+            <column name="fuel_type" value="COMPRESSED_NATURAL_GAS"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

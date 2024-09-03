@@ -6,5 +6,9 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
     <include file="changelog/ddl-changelog.xml"/>
-    <include file="changelog/dml-changelog.xml"/>
+    <include file="changelog/truck-data.xml"/>
+    <include file="changelog/company-data.xml"/>
+    <include file="changelog/goods-data.xml"/>
+    <include file="changelog/shipment-data.xml"/>
+    <include file="changelog/driver-data.xml"/>
 </databaseChangeLog>
