@@ -8,8 +8,13 @@ import java.util.Optional;
 
 
 public interface DriverService {
+    List<DriverDto> getDrivers();
 
-    Optional<DriverDto> createDriver(DriverDto driver);
+    Optional<DriverDto> getDriverById(Integer id);
 
-    List<DriverDto> listAll();
+    Optional<DriverDto> createDriver(DriverDto driverDto);
+
+    Optional<DriverDto> updateDriver(Integer id, DriverDto driverDto);
+
+    Optional<DriverDto> deleteDriver(Integer id);
 }

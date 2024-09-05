@@ -12,10 +12,19 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-public class DriverController implements DriverApi{
-
+public class DriverController implements DriverApi {
     private final DriverService driverService;
     private final DriverSearchService driverSearchService;
+
+    @Override
+    public ResponseEntity<List<DriverDto>> getDrivers() {
+        return ResponseEntity.ok(driverService.getDrivers());
+    }
+
+    @Override
+    public ResponseEntity<DriverDto> getDriverById(Integer id) {
+        return ResponseEntity.of(driverService.getDriverById(id));
+    }
 
     @Override
     public ResponseEntity<String> createDriver(DriverDto body) {
@@ -23,15 +32,26 @@ public class DriverController implements DriverApi{
             return ResponseEntity.status(HttpStatus.CREATED).body("Successfully created");
         }
         return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("Already Exist");
+
     }
 
     @Override
-    public ResponseEntity<List<DriverDto>> getDrivers() {
-        return ResponseEntity.ok(driverService.listAll());
+    public ResponseEntity<DriverDto> updateDriver(Integer idp, DriverDto body) {
+        return ResponseEntity.of(driverService.updateDriver(idp, body));
+    }
+
+    @Override
+    public ResponseEntity<String> deleteDriverById(Integer idd) {
+        if(driverService.deleteDriver(idd).isPresent()){
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Successfully deleted");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not Found with "+ idd);
+        }
     }
 
     @Override
     public ResponseEntity<List<DriverDto>> searchByCriteriaApi(String name, Integer experience, Integer companyId) {
         return ResponseEntity.ok(driverSearchService.searchDrivers(name, experience, companyId));
     }
+
 }

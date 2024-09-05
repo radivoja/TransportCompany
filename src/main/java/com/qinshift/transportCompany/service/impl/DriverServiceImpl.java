@@ -1,6 +1,7 @@
 package com.qinshift.transportCompany.service.impl;
 
 import com.qinshift.transportCompany.dto.DriverDto;
+import com.qinshift.transportCompany.entity.Driver;
 import com.qinshift.transportCompany.mappers.DriverMapper;
 import com.qinshift.transportCompany.repository.DriverRepository;
 import com.qinshift.transportCompany.service.DriverService;
@@ -17,16 +18,42 @@ public class DriverServiceImpl implements DriverService {
     private final DriverMapper driverMapper;
 
     @Override
-    public Optional<DriverDto> createDriver(DriverDto driver) {
-        if(driverRepository.existsById(driver.getId())){
+    public List<DriverDto> getDrivers() {
+        return driverMapper.mapToDto(driverRepository.findAll());
+    }
+	
+	@Override
+    public Optional<DriverDto> getDriverById(Integer id) {
+        return driverRepository.findById(id).map(driverMapper::map);
+    }
+	
+    @Override
+    public Optional<DriverDto> createDriver(DriverDto driverDto) {
+        if(driverRepository.existsById(driverDto.getId())){
             return Optional.empty();
         }
-        return Optional.of(driverMapper.map(driverRepository.save(driverMapper.map(driver))));
+        return Optional.of(driverMapper.map(driverRepository.save(driverMapper.map(driverDto))));
 
     }
 
     @Override
-    public List<DriverDto> listAll() {
-        return driverMapper.mapToDto(driverRepository.findAll());
+    public Optional<DriverDto> updateDriver(Integer id, DriverDto driverDto) {
+        if(driverRepository.existsById(id)) {
+            driverDto.setId(id);
+            return Optional.ofNullable(driverMapper.map(driverRepository.save(
+                driverMapper.map(driverDto))));
+        }
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<DriverDto> deleteDriver(Integer id) {
+        Optional<Driver> entity = driverRepository.findById(id);
+        if (entity.isPresent()) {
+            driverRepository.deleteById(id);
+            return Optional.of(new DriverDto());
+        } else {
+            return Optional.empty();
+        }
     }
 }
