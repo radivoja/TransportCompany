@@ -10,11 +10,12 @@ import java.util.List;
 @Mapper(componentModel = "spring", uses = {TruckMapper.class})
 public interface DriverMapper {
   @Mapping(target = "company", source = "company", ignore = true) // circular dependencies
-  DriverDto map(Driver entity);
+  DriverDto map(Driver driver);
 
   @Mapping(target = "company", source = "company", ignore = true) // circular dependencies
-  Driver map(DriverDto dto);
+  Driver map(DriverDto driverDto);
 
-  List<DriverDto> mapToDto(List<Driver> entities);
-  List<Driver> mapToEntity(List<DriverDto> dtos);
+  List<DriverDto> mapToDto(List<Driver> drivers);
+
+  List<Driver> mapToEntity(List<DriverDto> driversDto);
 }

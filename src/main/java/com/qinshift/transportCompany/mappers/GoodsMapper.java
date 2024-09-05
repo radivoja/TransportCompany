@@ -11,13 +11,14 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface GoodsMapper {
     @Mapping(target = "shipments", source = "shipments", ignore = true) // circular dependencies
-    GoodsDto map(Goods entity);
-    @Mapping(target = "shipments", source = "shipments", ignore = true) // circular dependencies
-    Goods map(GoodsDto dto);
+    GoodsDto map(Goods goods);
 
+    @Mapping(target = "shipments", source = "shipments", ignore = true) // circular dependencies
+    Goods map(GoodsDto goodsDto);
 
     @Mapping(target = "shipments", source = "shipments", ignore = true)
-    List<GoodsDto> mapToDto(List<Goods> entities);
+    List<GoodsDto> mapToDto(List<Goods> goods);
+
     @Mapping(target = "shipments", source = "shipments", ignore = true) // circular dependencies
-    List<Goods> mapToEntity(List<GoodsDto> dtos);
+    List<Goods> mapToEntity(List<GoodsDto> goodsDto);
 }

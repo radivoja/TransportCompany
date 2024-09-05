@@ -14,26 +14,35 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class CompanyServiceImpl implements CompanyService {
-
     private final CompanyRepository companyRepository;
     private final CompanyMapper companyMapper;
 
     @Override
-    public List<CompanyDto> listAll() {
-       return companyMapper.mapToDto(companyRepository.findAll());
+    public List<CompanyDto> getCompanies() {
+        return companyMapper.mapToDto(companyRepository.findAll());
     }
-
-    @Override
-    public Optional<CompanyDto> createCompany(CompanyDto company) {
-        if(companyRepository.existsById(company.getId())){
-            return Optional.empty();
-        }
-        return Optional.of(companyMapper.map(companyRepository.save(companyMapper.map(company))));
-    }
-
-    @Override
+	
+	@Override
     public Optional<CompanyDto> getCompanyById(Integer id) {
         return companyRepository.findById(id).map(companyMapper::map);
+    }
+	
+    @Override
+    public Optional<CompanyDto> createCompany(CompanyDto companyDto) {
+        if(companyRepository.existsById(companyDto.getId())){
+            return Optional.empty();
+        }
+        return Optional.of(companyMapper.map(companyRepository.save(companyMapper.map(companyDto))));
+    }
+
+    @Override
+    public Optional<CompanyDto> updateCompany(Integer id, CompanyDto companyDto) {
+        if(companyRepository.existsById(id)) {
+            companyDto.setId(id);
+            return Optional.ofNullable(companyMapper.map(companyRepository.save(
+                companyMapper.map(companyDto))));
+        }
+        return Optional.empty();
     }
 
     @Override
@@ -45,15 +54,5 @@ public class CompanyServiceImpl implements CompanyService {
         } else {
             return Optional.empty();
         }
-    }
-
-    @Override
-    public Optional<CompanyDto> updateCompany(Integer id, CompanyDto company) {
-        if(companyRepository.existsById(id)) {
-            company.setId(id);
-            return Optional.ofNullable(companyMapper.map(companyRepository.save(
-                    companyMapper.map(company))));
-        }
-        return Optional.empty();
     }
 }

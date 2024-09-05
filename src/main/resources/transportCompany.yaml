@@ -3,7 +3,7 @@ openapi: 3.0.0
 info:
   version: 0.0.1
   title: Transport Company
-  description: Transport Company api
+  description: Transport Company Api
 
 paths:
 
@@ -11,10 +11,9 @@ paths:
 # Get all companies
   /apiFirst/companies:
     get:
-      summary: Company Api
       tags:
         - "Company"
-      description: get all companies
+      description: Get all companies
       operationId: getCompanies
       responses:
         "200":
@@ -36,10 +35,9 @@ paths:
         in: path
         required: true
     get:
-      summary: Company Api
       tags:
         - "Company"
-      description: get company by id
+      description: Get company by id
       operationId: getCompanyById
       responses:
         "200":
@@ -52,13 +50,12 @@ paths:
 # Create company
   /apiFirst/companies/create:
     post:
-      summary: Company Api
       tags:
         - "Company"
-      description : create company
+      description : Create company
       operationId: createCompany
       requestBody:
-        description: company object
+        description: Company object
         required: true
         content:
           application/json:
@@ -76,16 +73,15 @@ paths:
   /apiFirst/companies/{idp}:
     parameters:
       - name: idp
-        description: idp
+        description: id param
         schema:
           type: integer
         in: path
         required: true
     put:
-      summary: Company Api
       tags:
         - "Company"
-      description: update company
+      description: Update company
       operationId: updateCompany
       requestBody:
         description: Updated
@@ -112,10 +108,9 @@ paths:
         in: path
         required: true
     delete:
-      summary: Company Api
       tags:
         - "Company"
-      description: delete company
+      description: Delete company
       operationId: deleteCompanyById
       responses:
         "200":
@@ -147,11 +142,10 @@ paths:
         in: query
         required: false 
     get:
-      summary: Company Api
       tags:
         - "Company"
-      description: search using criteria api
-      operationId: searchByCriteriaApi 
+      description: Search using criteria api
+      operationId: searchCompaniesByCriteriaApi 
       responses:
         "200":
           description: Completed
@@ -166,10 +160,9 @@ paths:
 # Get all drivers
   /apiFirst/drivers:
     get:
-      summary: Drivers Api
       tags:
         - "Driver"
-      description: get all drivers
+      description: Get all drivers
       operationId: getDrivers
       responses:
         "200":
@@ -185,13 +178,12 @@ paths:
   /apiFirst/drivers/{id}:
     parameters:
       - name: id
-        description: id
+        description: id param
         schema:
           type: integer
         in: path
         required: true
     get:
-      summary: Driver Api
       tags:
         - "Driver"
       description: Get driver by id
@@ -207,10 +199,9 @@ paths:
 # Create driver  
   /apiFirst/drivers/create:
     post:
-      summary: Driver Api
       tags:
         - "Driver"
-      description: create driver
+      description: Create driver
       operationId: createDriver
       requestBody:
         description: driver object
@@ -237,10 +228,9 @@ paths:
         in: path
         required: true
     put:
-      summary: Driver Api
       tags:
         - "Driver"
-      description: update driver
+      description: Update driver
       operationId: updateDriver
       requestBody:
         description: Updated
@@ -267,10 +257,9 @@ paths:
         in: path
         required: true
     delete:
-      summary: Driver Api
       tags:
         - "Driver"
-      description: delete driver
+      description: Delete driver
       operationId: deleteDriverById
       responses:
         "200":
@@ -302,11 +291,10 @@ paths:
         in: query
         required: false        
     get:
-      summary: Driver Api
       tags:
         - "Driver"
-      description: search drivers using criteria api
-      operationId: searchByCriteriaApi 
+      description: Search drivers using criteria api
+      operationId: searchDriversByCriteriaApi 
       responses:
         "200":
           description: Completed
@@ -317,161 +305,15 @@ paths:
                 items:
                   $ref: '#/components/schemas/DriverDto'
 
-# Goods Api
-# Get all goods
-  /apiFirst/goods:
-    get:
-      summary: Goods summary
-      tags:
-        - "Goods"
-      description: get all goods
-      operationId: getGoods
-      responses:
-        "200":
-          description: Completed
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/GoodsDto'
 
-# Get goods by id
-  /apiFirst/goods/{id}:
-    parameters:
-      - name: id
-        description: id param
-        schema:
-          type: integer
-        in: path
-        required: true
-    get:
-      summary: Goods Api
-      tags:
-        - "Goods"
-      description: get goods by id
-      operationId: getGoodsById
-      responses:
-        "200":
-          description: Completed
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GoodsDto'
-
-# Create goods
-  /apiFirst/goods/create:
-    post:
-      summary: Goods Api
-      tags:
-        - "Goods"
-      description : create goods
-      operationId: createGoods
-      requestBody:
-        description: goods object
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/GoodsDto'
-      responses:
-        "200":
-          description: Created
-          content:
-            application/json:
-              schema:
-                type: string
-# Update Goods
-  /apiFirst/goods/{idp}:
-    parameters:
-      - name: idp
-        description: id param
-        schema:
-          type: integer
-        in: path
-        required: true
-    put:
-      summary: Goods Api
-      tags:
-        - "Goods"
-      description: update Goods
-      operationId: updateGoods
-      requestBody:
-        description: goods object
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/GoodsDto'
-      responses:
-        '200':
-          description: Updated
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GoodsDto'
-
-# Delete goods
-  /apiFirst/goods/{idd}:
-    parameters:
-      - name: idd
-        description: id param
-        schema:
-          type: integer
-        in: path
-        required: true
-    delete:
-      summary: Goods Api
-      tags:
-        - "Goods"
-      description: delete goods
-      operationId: deleteGoodsById
-      responses:
-        "200":
-          description: Deleted
-          content:
-            application/json:
-              schema:
-                type: string
-# Search goods
-  /apiFirst/goods/search/critApi:
-    parameters:
-      - name: name
-        description: name
-        schema:
-          type: string
-        in: query
-        required: false
-      - name: quantity
-        description: quantity
-        schema:
-          type: integer
-        in: query
-        required: false        
-    get:
-      summary: Goods Api
-      tags:
-        - "Goods"
-      description: serch goods by criteria api
-      operationId: searchByCriteriaApi 
-      responses:
-        "200":
-          description: Completed
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/GoodsDto'
 
 # Truck Api
 # Get all trucks
   /apiFirst/trucks:
     get:
-      summary: Truck Api
       tags:
         - "Truck"
-      description: get all trucks
+      description: Get all trucks
       operationId: getTrucks
       responses:
         "200":
@@ -493,10 +335,9 @@ paths:
         in: path
         required: true
     get:
-      summary: Get a truck by Id
       tags:
         - "Truck"
-      description: get truck by id
+      description: Get truck by id
       operationId: getTruckById
       responses:
         "200":
@@ -509,12 +350,12 @@ paths:
 # Create truck
   /apiFirst/trucks/create:
     post:
-      summary: Company Api
       tags:
         - "Truck"
+      description: Create Truck 
       operationId: createTruck
       requestBody:
-        description: truck object
+        description: Truck object
         required: true
         content:
           application/json:
@@ -538,10 +379,9 @@ paths:
         in: path
         required: true
     put:
-      summary: Api
       tags:
         - "Truck"
-      description: update truck
+      description: Update truck
       operationId: updateTruck
       requestBody:
         description: truck object
@@ -568,10 +408,9 @@ paths:
         in: path
         required: true
     delete:
-      summary: delete
       tags:
         - "Truck"
-      description: delete Truck
+      description: Delete Truck
       operationId: deleteTruck
       responses:
         "200":
@@ -580,59 +419,7 @@ paths:
             application/json:
               schema:
                 type: string
-
-  /apiFirst/trucks/goods/{goodsId}:
-    parameters:
-      - name: goodsId
-        description: goods id
-        schema:
-          type: integer
-        in: path
-        required: true
-    get:
-      summary: get trucks by goods id
-      tags:
-        - "Truck"
-      operationId: getTrucksByGoodsId
-      responses:
-        "200":
-          description: created
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/TruckDto'
-
-
-  /apiFirst/trucks/{truckId}/goods/{goodsId}:
-    parameters:
-      - name: truckId
-        description: truck Id
-        schema:
-          type: integer
-        in: path
-        required: true
-      - name: goodsId
-        description: goods Id
-        schema:
-          type: integer
-        in: path
-        required: true
-    put:
-      summary: assign truck to goods
-      tags:
-        - "Truck"
-      operationId: assignTruckToGoods
-      responses:
-        "200":
-          description: created
-          content:
-            application/json:
-              schema:
-                type: string
-
-
+            
 # Search trucks                
   /apiFirst/trucks/search/critApi:
     parameters:
@@ -692,11 +479,10 @@ paths:
         in: query
         required: false
     get:
-      summary: Truck Api
       tags:
         - "Truck"
-      description: search trucks using criteria api 
-      operationId: searchByCriteriaApi 
+      description: Search trucks using criteria api 
+      operationId: searchTrucksByCriteriaApi 
       responses:
         "200":
           description: Completed
@@ -766,14 +552,13 @@ paths:
         in: query
         required: false
     get:
-      summary: Truck Api
       tags:
         - "Truck"
-      description: search using queryDsl         
-      operationId: searchByQueryDsl  
+      description: Search trucks using QueryDsl         
+      operationId: searchTrucksByQueryDsl  
       responses:
         "200":
-          description: created
+          description: Created
           content:
             application/json:
               schema:
@@ -785,10 +570,9 @@ paths:
 # Get all shipmets
   /apiFirst/shipments:
     get:
-      summary: Shipment Api
       tags:
         - "Shipment"
-      description: get all shipments
+      description: Get all shipments
       operationId: getShipments
       responses:
         "200":
@@ -810,10 +594,9 @@ paths:
         in: path
         required: true
     get:
-      summary: Shipment Api
       tags:
         - "Shipment"
-      description: get shipment by id
+      description: Get shipment by id
       operationId: getShipmentById
       responses:
         "200":
@@ -826,13 +609,12 @@ paths:
 # Create shipment
   /apiFirst/shipment/create:
     post:
-      summary: Shipment Api
       tags:
         - "Shipment"
-      description : create Shipment
+      description : Create Shipment
       operationId: createShipment
       requestBody:
-        description: shipment object
+        description: Shipment object
         required: true
         content:
           application/json:
@@ -856,12 +638,12 @@ paths:
         in: path
         required: true
     put:
-      summary: Shipment Api
       tags:
         - "Shipment"
+      description: Update Shipment  
       operationId: updateShipment
       requestBody:
-        description: desc
+        description: Updated
         required: true
         content:
           application/json:
@@ -885,10 +667,9 @@ paths:
         in: path
         required: true
     delete:
-      summary: Shipment Api
       tags:
         - "Shipment"
-      description: delete shipment by id
+      description: Delete shipment by id
       operationId: deleteShipmentById
       responses:
         "200":
@@ -921,13 +702,13 @@ paths:
         in: query
         required: false          
     get:
-      summary: Shipment Api
       tags:
         - "Shipment"
-      operationId: searchByCriteriaApi 
+      description: Search shipments using CriteriaApi
+      operationId: searchShipmentsByCriteriaApi 
       responses:
         "200":
-          description: created
+          description: Created
           content:
             application/json:
               schema:
@@ -935,11 +716,153 @@ paths:
                 items:
                   $ref: '#/components/schemas/ShipmentDto'
 
+# Goods Api
+# Get all goods
+  /apiFirst/goods:
+    get:
+      tags:
+        - "Goods"
+      description: Get all goods
+      operationId: getGoods
+      responses:
+        "200":
+          description: Completed
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GoodsDto'
+
+# Get goods by id
+  /apiFirst/goods/{id}:
+    parameters:
+      - name: id
+        description: id param
+        schema:
+          type: integer
+        in: path
+        required: true
+    get:
+      tags:
+        - "Goods"
+      description: Get goods by id
+      operationId: getGoodsById
+      responses:
+        "200":
+          description: Completed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoodsDto'
+
+# Create goods
+  /apiFirst/goods/create:
+    post:
+      tags:
+        - "Goods"
+      description : Create goods
+      operationId: createGoods
+      requestBody:
+        description: goods object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoodsDto'
+      responses:
+        "200":
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: string
+# Update Goods
+  /apiFirst/goods/{idp}:
+    parameters:
+      - name: idp
+        description: id param
+        schema:
+          type: integer
+        in: path
+        required: true
+    put:
+      tags:
+        - "Goods"
+      description: Update Goods
+      operationId: updateGoods
+      requestBody:
+        description: Goods object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoodsDto'
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoodsDto'
+
+# Delete goods
+  /apiFirst/goods/{idd}:
+    parameters:
+      - name: idd
+        description: id param
+        schema:
+          type: integer
+        in: path
+        required: true
+    delete:
+      tags:
+        - "Goods"
+      description: Delete goods
+      operationId: deleteGoodsById
+      responses:
+        "200":
+          description: Deleted
+          content:
+            application/json:
+              schema:
+                type: string
+
+# Search goods
+  /apiFirst/goods/search/critApi:
+    parameters:
+      - name: name
+        description: name
+        schema:
+          type: string
+        in: query
+        required: false
+      - name: quantity
+        description: quantity
+        schema:
+          type: integer
+        in: query
+        required: false        
+    get:
+      tags:
+        - "Goods"
+      description: Search goods by criteria api
+      operationId: searchGoodsByCriteriaApi 
+      responses:
+        "200":
+          description: Completed
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GoodsDto'
+
 # Object schemas
 components:
   schemas:
     CompanyDto:
-      description: company
+      description: Company
       type: object
       properties:
         id:
@@ -960,7 +883,7 @@ components:
             $ref: '#/components/schemas/DriverDto'
 
     DriverDto:
-      description: driver
+      description: Driver
       type: object
       properties:
         id:
@@ -980,7 +903,7 @@ components:
           $ref: '#/components/schemas/TruckDto'
 
     TruckDto:
-      description: This is the truck model
+      description: Truck
       type: object
       properties:
         id:
@@ -1032,7 +955,7 @@ components:
         - COMPRESSED_NATURAL_GAS
         - ELECTRIC_POWER
     GoodsDto:
-      description: This is goods
+      description: Goods
       type: object
       properties:
         id:
@@ -1050,7 +973,7 @@ components:
             $ref: '#/components/schemas/ShipmentDto'
                         
     ShipmentDto:
-      description: Shipment object
+      description: Shipment
       type: object
       properties:
         id:

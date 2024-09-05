@@ -7,9 +7,9 @@ import java.util.Optional;
 
 
 public interface TruckService {
-    List<TruckDto> findAll();
+    List<TruckDto> getTrucks();
 
-    Optional<TruckDto> getTruck(Integer id);
+    Optional<TruckDto> getTruckById(Integer id);
 
     Optional<TruckDto> createTruck(TruckDto truck);
 

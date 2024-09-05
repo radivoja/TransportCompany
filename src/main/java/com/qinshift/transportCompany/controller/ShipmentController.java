@@ -33,7 +33,6 @@ public class ShipmentController implements ShipmentApi {
             return ResponseEntity.status(HttpStatus.CREATED).body("Successfully created");
         }
         return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("Already Exist");
-
     }
 
     @Override
@@ -51,8 +50,7 @@ public class ShipmentController implements ShipmentApi {
     }
 
     @Override
-    public ResponseEntity<List<ShipmentDto>> searchByCriteriaApi(String destination, Double distance, Integer truckId) {
+    public ResponseEntity<List<ShipmentDto>> searchShipmentsByCriteriaApi(String destination, Double distance, Integer truckId) {
         return ResponseEntity.ok(shipmentSearchService.searchShipments(destination, distance, truckId));
     }
-
 }

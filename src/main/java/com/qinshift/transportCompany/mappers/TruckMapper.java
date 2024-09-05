@@ -15,8 +15,8 @@ public interface TruckMapper {
     Truck map(TruckDto dto);
 
     @Mapping(target = "shipments", source = "shipments", ignore = true) // circular dependencies
-    List<TruckDto> mapToDto(List<Truck> entities);
+    List<TruckDto> mapToDto(List<Truck> trucks);
 
     @Mapping(target = "shipments", source = "shipments", ignore = true) // circular dependencies
-    List<Truck> mapToEntity(List<TruckDto> dtos);
+    List<Truck> mapToEntity(List<TruckDto> truckDto);
 }

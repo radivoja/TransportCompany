@@ -33,7 +33,6 @@ public class GoodsController implements GoodsApi {
             return ResponseEntity.status(HttpStatus.CREATED).body("Successfully created");
         }
         return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("Already Exist");
-
     }
 
     @Override
@@ -51,8 +50,7 @@ public class GoodsController implements GoodsApi {
     }
 
     @Override
-    public ResponseEntity<List<GoodsDto>> searchByCriteriaApi(String name, Integer quantity) {
+    public ResponseEntity<List<GoodsDto>> searchGoodsByCriteriaApi(String name, Integer quantity) {
         return ResponseEntity.ok(goodsSearchService.searchGoods(name, quantity));
     }
-
 }

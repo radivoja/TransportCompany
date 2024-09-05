@@ -26,15 +26,6 @@ public class TruckController implements TruckApi{
     @Autowired
     @Qualifier("queryDsl")
     private TruckSearchService queryDsl;
-    
-    @Override
-    public ResponseEntity<String> assignTruckToGoods(Integer truckId, Integer goodsId) {
-       /* if(truckService.assignTruckToGoods(truckId, goodsId)){
-            return new ResponseEntity<>("Successfully assigned", HttpStatus.ACCEPTED);
-        }*/
-
-        return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
-    }
 
     @Override
     public ResponseEntity<String> createTruck(TruckDto body) {
@@ -42,7 +33,6 @@ public class TruckController implements TruckApi{
             return ResponseEntity.status(HttpStatus.CREATED).body("Successfully created");
         }
         return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("Already Exist");
-
     }
 
     @Override
@@ -56,22 +46,16 @@ public class TruckController implements TruckApi{
 
     @Override
     public ResponseEntity<TruckDto> getTruckById(Integer id) {
-        return ResponseEntity.of(truckService.getTruck(id));
+        return ResponseEntity.of(truckService.getTruckById(id));
     }
 
     @Override
     public ResponseEntity<List<TruckDto>> getTrucks() {
-        return ResponseEntity.ok(truckService.findAll());
+        return ResponseEntity.ok(truckService.getTrucks());
     }
 
     @Override
-    public ResponseEntity<List<TruckDto>> getTrucksByGoodsId(Integer goodsId) {
-        return null;
-
-    }
-
-    @Override
-    public ResponseEntity<List<TruckDto>> searchByCriteriaApi(Integer vehicleWeight, String model, String manufacturer, Integer yearManufactured, Integer horsePower, Integer torque, Double cargoCapacity, Boolean aerodynamics, FuelType fuelType) {
+    public ResponseEntity<List<TruckDto>> searchTrucksByCriteriaApi(Integer vehicleWeight, String model, String manufacturer, Integer yearManufactured, Integer horsePower, Integer torque, Double cargoCapacity, Boolean aerodynamics, FuelType fuelType) {
         return ResponseEntity.ok(criteriaApi.searchTrucks(
                 vehicleWeight,
                 model,
@@ -85,19 +69,9 @@ public class TruckController implements TruckApi{
     }
 
     @Override
-    public ResponseEntity<List<TruckDto>> searchByQueryDsl(Integer vehicleWeight, String model, String manufacturer, Integer yearManufactured, Integer horsePower, Integer torque, Double cargoCapacity, Boolean aerodynamics, FuelType fuelType) {
-        return ResponseEntity.ok(queryDsl.searchTrucks(
-                vehicleWeight,
-                model,
-                manufacturer,
-                horsePower,
-                yearManufactured,
-                torque,
-                cargoCapacity,
-                aerodynamics,
-                fuelType));
+    public ResponseEntity<List<TruckDto>> searchTrucksByQueryDsl(Integer vehicleWeight, String model, String manufacturer, Integer yearManufactured, Integer horsePower, Integer torque, Double cargoCapacity, Boolean aerodynamics, FuelType fuelType) {
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
     }
-
 
     @Override
     public ResponseEntity<TruckDto> updateTruck(Integer idt, TruckDto body) {

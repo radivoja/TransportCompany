@@ -36,7 +36,7 @@ public class CompanyController implements CompanyApi {
 
     @Override
     public ResponseEntity<List<CompanyDto>> getCompanies() {
-        return ResponseEntity.ok(companyService.listAll());
+        return ResponseEntity.ok(companyService.getCompanies());
     }
 
     @Override
@@ -45,7 +45,7 @@ public class CompanyController implements CompanyApi {
     }
 
     @Override
-    public ResponseEntity<List<CompanyDto>> searchByCriteriaApi(String name, String location, Integer founded) {
+    public ResponseEntity<List<CompanyDto>> searchCompaniesByCriteriaApi(String name, String location, Integer founded) {
         return ResponseEntity.ok(companySearchService.searchCompanies(name, location, founded));
     }
 

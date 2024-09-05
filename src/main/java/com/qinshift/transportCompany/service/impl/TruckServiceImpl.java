@@ -21,12 +21,12 @@ public class TruckServiceImpl implements TruckService {
     private final TruckMapper truckMapper;
 
     @Override
-    public List<TruckDto> findAll() {
+    public List<TruckDto> getTrucks() {
         return truckMapper.mapToDto(truckRepository.findAll());
     }
 
     @Override
-    public Optional<TruckDto> getTruck(Integer id) {
+    public Optional<TruckDto> getTruckById(Integer id) {
         return truckRepository.findById(id).map(truckMapper::map);
     }
 
@@ -59,41 +59,4 @@ public class TruckServiceImpl implements TruckService {
             return Optional.empty();
         }
     }
-
-  /*  @Override
-    public List<Truck> findTrucksByGoodsId(Integer id) {
-        return truckMapper.mapToDto(truckRepository.findTrucksByGoodsId(id));
-    }
-
-  
-
-    /*@Override
-    public boolean assignTruckToGoods(Integer truckId, Integer goodsId) {
-        Optional<TruckEntity> truck = truckRepository.findById(truckId);
-        Optional<GoodsEntity> goods = goodsRepository.findById(goodsId);
-
-        if(truck.isEmpty() || goods.isEmpty()){
-            return false;
-        }
-
-       List<GoodsEntity> listOfGoods = truck.get().getGoods();
-        listOfGoods.add(goods.get());
-
-        List<TruckEntity> listOfTrucks = goods.get().getTrucks();
-        listOfTrucks.add(truck.get());
-
-
-
-        truck.get().setGoods(listOfGoods);
-        goods.get().setTrucks(listOfTrucks);
-
-        truckRepository.save(truck.get());
-        goodsRepository.save(goods.get());
-
-        return true;
-    }
-
-
-
-     */
 }

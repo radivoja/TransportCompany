@@ -32,7 +32,6 @@ public class DriverController implements DriverApi {
             return ResponseEntity.status(HttpStatus.CREATED).body("Successfully created");
         }
         return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("Already Exist");
-
     }
 
     @Override
@@ -50,8 +49,7 @@ public class DriverController implements DriverApi {
     }
 
     @Override
-    public ResponseEntity<List<DriverDto>> searchByCriteriaApi(String name, Integer experience, Integer companyId) {
+    public ResponseEntity<List<DriverDto>> searchDriversByCriteriaApi(String name, Integer experience, Integer companyId) {
         return ResponseEntity.ok(driverSearchService.searchDrivers(name, experience, companyId));
     }
-
 }

@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TruckRepository extends JpaRepository<Truck, Integer> {
- //  List<TruckEntity> findTrucksByGoodsId(Integer id);
 }
